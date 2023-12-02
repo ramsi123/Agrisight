@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "573322563184",
+    "project_id": "soil-detector-18c22",
+    "storage_bucket": "soil-detector-18c22.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:573322563184:android:bd92308ca847154a5feeb5",
+        "android_client_info": {
+          "package_name": "com.example.capstoneproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "573322563184-k3bq6qa5ivce7pl2g6rmcdj5ecp0tsnq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.capstoneproject",
+            "certificate_hash": "fb21bf56fff83f0318794e5856079e17200f2419"
+          }
+        },
+        {
+          "client_id": "573322563184-tpq5npqrfa018k088egsddke91n9ap1q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBH0T-zdngP6ibQeuF9FjqWSyDvRsndSXs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "573322563184-tpq5npqrfa018k088egsddke91n9ap1q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
