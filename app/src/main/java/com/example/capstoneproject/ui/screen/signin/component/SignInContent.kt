@@ -41,10 +41,10 @@ import com.example.capstoneproject.components.AuthHeaderView
 import com.example.capstoneproject.components.EmailField
 import com.example.capstoneproject.components.PasswordField
 import com.example.capstoneproject.ui.theme.colorPrimary
-import com.example.capstoneproject.ui.theme.dark_gray
-import com.example.capstoneproject.ui.theme.ghost_white
+import com.example.capstoneproject.ui.theme.darkGray
+import com.example.capstoneproject.ui.theme.ghostWhite
 import com.example.capstoneproject.ui.theme.gray
-import com.example.capstoneproject.ui.theme.light_gray
+import com.example.capstoneproject.ui.theme.lightGray
 import com.example.capstoneproject.util.Constants.EMAIL_LABEL
 import com.example.capstoneproject.util.Constants.FORGOT_PASSWORD
 import com.example.capstoneproject.util.Constants.GOOGLE_SIGN_IN_BUTTON
@@ -99,7 +99,7 @@ fun SignInContent(
                 Card(
                     shape = RoundedCornerShape(topStart = 40.dp, topEnd = 40.dp),
                     colors = CardDefaults.cardColors(
-                        containerColor = ghost_white
+                        containerColor = ghostWhite
                     ),
                     modifier = modifier
                         .fillMaxSize()
@@ -120,7 +120,7 @@ fun SignInContent(
                             append(SIGN_IN_TITLE)
                             addStyle(
                                 style = SpanStyle(
-                                    color = dark_gray,
+                                    color = darkGray,
                                     fontFamily = FontFamily(Font(R.font.helvetica_neue_regular))
                                 ),
                                 start = 0,
@@ -224,7 +224,7 @@ fun SignInContent(
                                 text = NO_ACCOUNT,
                                 style = TextStyle(
                                     fontSize = 14.sp,
-                                    color = light_gray,
+                                    color = lightGray,
                                     fontFamily = FontFamily(Font(R.font.helvetica_neue_regular))
                                 )
                             )

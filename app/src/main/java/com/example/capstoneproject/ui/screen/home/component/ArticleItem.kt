@@ -2,7 +2,6 @@ package com.example.capstoneproject.ui.screen.home.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -26,7 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.capstoneproject.R
 import com.example.capstoneproject.ui.theme.colorPrimary
-import com.example.capstoneproject.ui.theme.light_gray
+import com.example.capstoneproject.ui.theme.lightGray
 
 @Composable
 fun ArticleItem(
@@ -63,6 +62,7 @@ fun ArticleItem(
                     )
                 }
                 Text(
+                    modifier = modifier.padding(top = 5.dp),
                     text = title,
                     color = Color.Black,
                     fontFamily = FontFamily(Font(R.font.helvetica_neue_bold)),
@@ -71,7 +71,7 @@ fun ArticleItem(
                 )
                 Text(
                     text = time,
-                    color = light_gray,
+                    color = lightGray,
                     fontFamily = FontFamily(Font(R.font.helvetica_neue_regular)),
                     fontSize = 12.sp
                 )

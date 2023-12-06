@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.capstoneproject.R
 import com.example.capstoneproject.ui.theme.colorPrimary
-import com.example.capstoneproject.ui.theme.ghost_white
+import com.example.capstoneproject.ui.theme.ghostWhite
 import com.example.capstoneproject.util.Constants.SIGN_IN_BUTTON
 import com.example.capstoneproject.util.Constants.SIGN_UP_BUTTON
 import com.example.capstoneproject.util.Constants.TITLE
@@ -69,7 +69,7 @@ fun WelcomeContent(
                     .fillMaxWidth()
                     .padding(top = 15.dp, bottom = 10.dp),
                 onClick = navigateToSignUpScreen,
-                colors = ButtonDefaults.buttonColors(containerColor = ghost_white)
+                colors = ButtonDefaults.buttonColors(containerColor = ghostWhite)
             ) {
                 Text(
                     modifier = modifier
@@ -82,7 +82,7 @@ fun WelcomeContent(
             Button(
                 modifier = modifier.fillMaxWidth(),
                 onClick = navigateToSignInScreen,
-                colors = ButtonDefaults.buttonColors(containerColor = ghost_white)
+                colors = ButtonDefaults.buttonColors(containerColor = ghostWhite)
             ) {
                 Text(
                     modifier = modifier

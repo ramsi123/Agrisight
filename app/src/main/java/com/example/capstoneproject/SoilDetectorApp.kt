@@ -1,6 +1,7 @@
 package com.example.capstoneproject
 
 import android.annotation.SuppressLint
+import androidx.activity.ComponentActivity
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
@@ -15,7 +16,8 @@ import com.example.capstoneproject.ui.screen.dashboard.DashboardScreen
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun SoilDetectorApp(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    activity: ComponentActivity
 ) {
     val navAuthController = rememberNavController()
     val navDashboardController = rememberNavController()
@@ -30,6 +32,7 @@ fun SoilDetectorApp(
         composable(Screen.Dashboard.route) {
             DashboardScreen(
                 navController = navDashboardController,
+                activity = activity,
                 signOut = {
                     navAuthController.popBackStack()
                     navAuthController.navigate(ROOT_ROUTE)

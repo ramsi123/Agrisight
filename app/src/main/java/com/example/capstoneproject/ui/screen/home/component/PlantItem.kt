@@ -20,7 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.capstoneproject.R
-import com.example.capstoneproject.ui.theme.light_gray
+import com.example.capstoneproject.ui.theme.lightGray
 
 @Composable
 fun PlantItem(
@@ -52,7 +52,7 @@ fun PlantItem(
                 )
                 Text(
                     text = latinName,
-                    color = light_gray,
+                    color = lightGray,
                     fontFamily = FontFamily(Font(R.font.helvetica_neue_regular)),
                     fontSize = 12.sp
                 )

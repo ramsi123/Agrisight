@@ -16,7 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.capstoneproject.ui.theme.colorPrimary
-import com.example.capstoneproject.ui.theme.ghost_white
+import com.example.capstoneproject.ui.theme.ghostWhite
 
 @Composable
 fun ProfileContent(
@@ -25,7 +25,7 @@ fun ProfileContent(
 ) {
     Surface(modifier = modifier.fillMaxSize(), color = colorPrimary) {
         Card(
-            colors = CardDefaults.cardColors(containerColor = ghost_white),
+            colors = CardDefaults.cardColors(containerColor = ghostWhite),
             shape = RoundedCornerShape(topStart = 40.dp, topEnd = 40.dp),
             modifier = modifier
                 .fillMaxSize()

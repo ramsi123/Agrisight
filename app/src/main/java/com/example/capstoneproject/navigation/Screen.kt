@@ -1,9 +1,11 @@
 package com.example.capstoneproject.navigation
 
+import com.example.capstoneproject.util.Constants.CAMERA_SCREEN
 import com.example.capstoneproject.util.Constants.DASHBOARD_SCREEN
 import com.example.capstoneproject.util.Constants.FORGOT_PASSWORD_SCREEN
 import com.example.capstoneproject.util.Constants.HOME_SCREEN
 import com.example.capstoneproject.util.Constants.PROFILE_SCREEN
+import com.example.capstoneproject.util.Constants.RESULT_SCREEN
 import com.example.capstoneproject.util.Constants.SIGN_IN_SCREEN
 import com.example.capstoneproject.util.Constants.SIGN_UP_SCREEN
 import com.example.capstoneproject.util.Constants.TOOLS_SCREEN
@@ -23,4 +25,8 @@ sealed class Screen(val route: String) {
     object Home : Screen(HOME_SCREEN)
     object Tools : Screen(TOOLS_SCREEN)
     object Profile : Screen(PROFILE_SCREEN)
+    object Camera : Screen(CAMERA_SCREEN)
+    object Result : Screen("$RESULT_SCREEN/{title}/{score}") {
+        fun resultRoute(title: String, score: Float) = "$RESULT_SCREEN/$title/$score"
+    }
 }

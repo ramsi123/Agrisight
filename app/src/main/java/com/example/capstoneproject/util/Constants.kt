@@ -19,16 +19,19 @@ object Constants {
     const val HOME_SCREEN = "Home"
     const val TOOLS_SCREEN = "Tools"
     const val PROFILE_SCREEN = "Profile"
+    const val CAMERA_SCREEN = "Camera"
+    const val RESULT_SCREEN = "Result"
 
     // Labels
     const val EMAIL_LABEL = "Email Address"
     const val PASSWORD_LABEL = "Password"
+    const val CAMERA_LABEL = "Take a photo to scan soil"
 
     // Useful
     const val EMPTY_STRING = ""
 
     // Texts
-    const val TITLE = "Soil Detector"
+    const val TITLE = "Agrisight"
     const val SIGN_UP_TITLE = "Create your new account"
     const val SIGN_UP_TITLE_WORD = "Create"
     const val SIGN_UP = "Sign Up"

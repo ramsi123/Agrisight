@@ -34,8 +34,8 @@ import com.example.capstoneproject.R
 import com.example.capstoneproject.components.AuthHeaderView
 import com.example.capstoneproject.components.EmailField
 import com.example.capstoneproject.ui.theme.colorPrimary
-import com.example.capstoneproject.ui.theme.dark_gray
-import com.example.capstoneproject.ui.theme.ghost_white
+import com.example.capstoneproject.ui.theme.darkGray
+import com.example.capstoneproject.ui.theme.ghostWhite
 import com.example.capstoneproject.ui.theme.gray
 import com.example.capstoneproject.util.Constants
 import com.example.capstoneproject.util.Constants.FORGOT_PASSWORD_TITLE
@@ -81,7 +81,7 @@ fun ForgotPasswordContent(
                 Card(
                     shape = RoundedCornerShape(topStart = 40.dp, topEnd = 40.dp),
                     colors = CardDefaults.cardColors(
-                        containerColor = ghost_white
+                        containerColor = ghostWhite
                     ),
                     modifier = modifier
                         .fillMaxSize()
@@ -102,7 +102,7 @@ fun ForgotPasswordContent(
                             append(FORGOT_PASSWORD_TITLE)
                             addStyle(
                                 style = SpanStyle(
-                                    color = dark_gray,
+                                    color = darkGray,
                                     fontFamily = FontFamily(Font(R.font.helvetica_neue_regular))
                                 ),
                                 start = 0,

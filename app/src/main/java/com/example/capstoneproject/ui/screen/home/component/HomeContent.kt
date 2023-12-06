@@ -32,8 +32,8 @@ import com.example.capstoneproject.R
 import com.example.capstoneproject.data.model.dummyArticle
 import com.example.capstoneproject.data.model.dummyPlant
 import com.example.capstoneproject.ui.theme.colorPrimary
-import com.example.capstoneproject.ui.theme.ghost_white
-import com.example.capstoneproject.ui.theme.light_gray
+import com.example.capstoneproject.ui.theme.ghostWhite
+import com.example.capstoneproject.ui.theme.lightGray
 import com.example.capstoneproject.util.Constants.ARTICLE_SECTION_TITLE
 import com.example.capstoneproject.util.Constants.CARD_DESCRIPTION
 import com.example.capstoneproject.util.Constants.CARD_TITLE
@@ -48,7 +48,7 @@ fun HomeContent(
 ) {
     Surface(modifier = modifier.fillMaxSize(), color = colorPrimary) {
         Card(
-            colors = CardDefaults.cardColors(containerColor = ghost_white),
+            colors = CardDefaults.cardColors(containerColor = ghostWhite),
             shape = RoundedCornerShape(topStart = 40.dp, topEnd = 40.dp),
             modifier = modifier
                 .fillMaxSize()
@@ -92,7 +92,7 @@ fun HomeContent(
                                 Text(
                                     modifier = modifier.padding(top = 6.dp, bottom = 12.dp),
                                     text = CARD_DESCRIPTION,
-                                    color = light_gray,
+                                    color = lightGray,
                                     fontFamily = FontFamily(Font(R.font.helvetica_neue_regular)),
                                     textAlign = TextAlign.End,
                                     fontSize = 12.sp,
