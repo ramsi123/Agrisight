@@ -11,7 +11,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.capstoneproject.components.BottomBar
 import com.example.capstoneproject.components.FloatingActionButton
-import com.example.capstoneproject.components.TopBar
+import com.example.capstoneproject.ui.screen.dashboard.component.TopBarDashboard
 import com.example.capstoneproject.navigation.BASE_ROUTE
 import com.example.capstoneproject.navigation.DASHBOARD_ROUTE
 import com.example.capstoneproject.navigation.Screen
@@ -33,18 +33,18 @@ fun DashboardScreen(
 
     Scaffold(
         topBar = {
-            if (currentRoute != Screen.Camera.route) {
+            if (currentRoute == Screen.Home.route || currentRoute == Screen.Tools.route || currentRoute == Screen.Profile.route || currentRoute == Screen.Result.route) {
                 val title = when (currentRoute) {
                     Screen.Home.route -> TITLE
                     Screen.Tools.route -> TOOLS_SCREEN
                     Screen.Profile.route -> PROFILE_SCREEN
                     else -> RESULT_SCREEN
                 }
-                TopBar(title = title)
+                TopBarDashboard(title = title)
             }
         },
         bottomBar = {
-            if (currentRoute != Screen.Camera.route && currentRoute != Screen.Result.route) {
+            if (currentRoute == Screen.Home.route || currentRoute == Screen.Tools.route || currentRoute == Screen.Profile.route) {
                 BottomBar(navController = navController)
             }
         },

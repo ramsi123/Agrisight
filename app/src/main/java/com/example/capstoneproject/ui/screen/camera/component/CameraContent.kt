@@ -37,7 +37,7 @@ import androidx.compose.ui.unit.sp
 import com.example.capstoneproject.R
 import com.example.capstoneproject.ui.theme.darkGray
 import com.example.capstoneproject.util.Constants.CAMERA_LABEL
-import com.example.capstoneproject.util.Constants.TITLE
+import com.example.capstoneproject.util.Constants.CAMERA_TITLE
 
 @Composable
 fun CameraContent(
@@ -83,7 +83,7 @@ fun CameraContent(
             modifier = modifier
                 .align(Alignment.TopCenter)
                 .padding(top = 10.dp),
-            text = TITLE,
+            text = CAMERA_TITLE,
             style = TextStyle(
                 fontSize = 24.sp,
                 color = Color.White,

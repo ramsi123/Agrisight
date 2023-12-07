@@ -2,14 +2,14 @@ package com.example.capstoneproject.ui.screen.signin
 
 import android.content.Intent
 import androidx.lifecycle.ViewModel
-import com.example.capstoneproject.data.AuthRepository
+import com.example.capstoneproject.data.AgrisightRepository
 import com.example.capstoneproject.ui.screen.signin.component.SignInResult
 import com.example.capstoneproject.ui.screen.signin.component.SignInState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 
-class SignInViewModel(private val repository: AuthRepository) : ViewModel() {
+class SignInViewModel(private val repository: AgrisightRepository) : ViewModel() {
 
     private val _state = MutableStateFlow(SignInState())
     val state = _state.asStateFlow()

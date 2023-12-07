@@ -31,7 +31,7 @@ import kotlinx.coroutines.launch
 fun SignUpScreen(
     modifier: Modifier = Modifier,
     viewModel: SignUpViewModel = viewModel(
-        factory = ViewModelFactory(Injection.provideAuthRepository(LocalContext.current))
+        factory = ViewModelFactory(Injection.provideAgrisightRepository(LocalContext.current))
     ),
     navController: NavHostController
 ) {

@@ -14,7 +14,7 @@ import com.example.capstoneproject.ui.screen.signup.SignUpViewModel
 @Composable
 fun SignUp(
     viewModel: SignUpViewModel = viewModel(
-        factory = ViewModelFactory(Injection.provideAuthRepository(LocalContext.current))
+        factory = ViewModelFactory(Injection.provideAgrisightRepository(LocalContext.current))
     ),
     navigateToHomeScreen: () -> Unit
 ) {

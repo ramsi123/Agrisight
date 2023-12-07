@@ -21,6 +21,10 @@ object Constants {
     const val PROFILE_SCREEN = "Profile"
     const val CAMERA_SCREEN = "Camera"
     const val RESULT_SCREEN = "Result"
+    const val PLANT_LIST_SCREEN = "Plant List"
+    const val PLANT_DETAIL_SCREEN = "Plant Detail"
+    const val ARTICLE_LIST_SCREEN = "Article List"
+    const val ARTICLE_DETAIL_SCREEN = "Article Detail"
 
     // Labels
     const val EMAIL_LABEL = "Email Address"
@@ -47,6 +51,11 @@ object Constants {
     const val PLANT_SECTION_TITLE = "Tanaman"
     const val ARTICLE_SECTION_TITLE = "Artikel"
     const val VIEW_ALL = "Lihat Semua"
+    const val CAMERA_TITLE = "Agrisight Analysis"
+    const val PLANT_LIST_TITLE = "Tanaman"
+    const val SEARCH_BAR_PLANT_LIST = "Cari Tanaman"
+    const val ARTICLE_LIST_TITLE = "Artikel"
+    const val SEARCH_BAR_ARTICLE_LIST = "Cari Artikel"
 
     // image description
     const val GREEN_HOUSE = "Green house"

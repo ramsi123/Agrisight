@@ -32,7 +32,7 @@ import kotlinx.coroutines.launch
 fun SignInScreen(
     modifier: Modifier = Modifier,
     viewModel: SignInViewModel = viewModel(
-        factory = ViewModelFactory(Injection.provideAuthRepository(LocalContext.current))
+        factory = ViewModelFactory(Injection.provideAgrisightRepository(LocalContext.current))
     ),
     navController: NavHostController
 ) {

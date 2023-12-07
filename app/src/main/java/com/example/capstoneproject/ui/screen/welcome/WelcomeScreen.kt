@@ -17,7 +17,7 @@ import com.example.capstoneproject.ui.screen.welcome.component.WelcomeContent
 fun WelcomeScreen(
     modifier: Modifier = Modifier,
     viewModel: WelcomeViewModel = viewModel(
-        factory = ViewModelFactory(Injection.provideAuthRepository(LocalContext.current))
+        factory = ViewModelFactory(Injection.provideAgrisightRepository(LocalContext.current))
     ),
     navController: NavHostController
 ) {

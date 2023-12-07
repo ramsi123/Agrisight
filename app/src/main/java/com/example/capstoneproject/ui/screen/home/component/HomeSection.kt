@@ -8,13 +8,18 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun HomeSection(
+    modifier: Modifier = Modifier,
     title: String,
     viewAll: String,
-    modifier: Modifier = Modifier,
+    navigateToListScreen: () -> Unit,
     content: @Composable () -> Unit
 ) {
     Column(modifier = modifier.padding(bottom = 16.dp)) {
-        SectionText(title = title, viewAll = viewAll)
+        SectionText(
+            title = title,
+            viewAll = viewAll,
+            navigateToListScreen = { navigateToListScreen() }
+        )
         content()
     }
 }

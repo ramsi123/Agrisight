@@ -5,6 +5,10 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentSender
 import com.example.capstoneproject.R
+import com.example.capstoneproject.data.model.Article
+import com.example.capstoneproject.data.model.Plant
+import com.example.capstoneproject.data.model.dummyArticle
+import com.example.capstoneproject.data.model.dummyPlant
 import com.example.capstoneproject.ui.common.UiState
 import com.example.capstoneproject.ui.screen.signin.component.SignInResult
 import com.example.capstoneproject.ui.screen.signin.component.SignInState
@@ -18,15 +22,40 @@ import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.stateIn
-import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.tasks.await
 import kotlin.coroutines.cancellation.CancellationException
 
-class AuthRepository(
+class AgrisightRepository(
     private val context: Context,
     private val auth: FirebaseAuth,
     private val oneTapClient: SignInClient
 ) {
+
+    fun getPlants(): List<Plant> {
+        return dummyPlant
+    }
+
+    fun searchPlants(query: String): List<Plant> {
+        return dummyPlant.filter {
+            val name = it.name.contains(query, ignoreCase = true)
+
+            if (name) {
+                it.name.contains(query, ignoreCase = true)
+            } else {
+                it.latinName.contains(query, ignoreCase = true)
+            }
+        }
+    }
+
+    fun getArticles(): List<Article> {
+        return dummyArticle
+    }
+
+    fun searchArticles(query: String): List<Article> {
+        return dummyArticle.filter {
+            it.title.contains(query, ignoreCase = true)
+        }
+    }
 
     suspend fun signIn(): IntentSender? {
         val result = try {
@@ -170,14 +199,14 @@ class AuthRepository(
     companion object {
         @SuppressLint("StaticFieldLeak")
         @Volatile
-        private var instance: AuthRepository? = null
+        private var instance: AgrisightRepository? = null
         fun getInstance(
             context: Context,
             auth: FirebaseAuth,
             oneTapClient: SignInClient
-        ): AuthRepository =
+        ): AgrisightRepository =
             instance ?: synchronized(this) {
-                instance ?: AuthRepository(context, auth, oneTapClient)
+                instance ?: AgrisightRepository(context, auth, oneTapClient)
             }.also { instance = it }
     }
 }

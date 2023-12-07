@@ -1,9 +1,14 @@
 package com.example.capstoneproject.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -20,10 +25,11 @@ import com.example.capstoneproject.ui.theme.colorPrimary
 @Composable
 fun TopBar(
     modifier: Modifier = Modifier,
-    title: String
+    title: String,
+    navigateBack: () -> Unit
 ) {
-    CenterAlignedTopAppBar(
-        modifier =  modifier.fillMaxWidth(),
+    TopAppBar(
+        modifier = modifier.fillMaxWidth(),
         title = {
             Text(
                 text = title,
@@ -35,6 +41,18 @@ fun TopBar(
                 )
             )
         },
-        colors = TopAppBarDefaults.topAppBarColors(containerColor = colorPrimary)
+        colors = TopAppBarDefaults.topAppBarColors(containerColor = colorPrimary),
+        navigationIcon = {
+            IconButton(
+                onClick = {
+                    navigateBack()
+                },
+                colors = IconButtonDefaults.iconButtonColors(
+                    contentColor = Color.White
+                )
+            ) {
+                Icon(imageVector = Icons.Default.ArrowBack, contentDescription = null)
+            }
+        }
     )
 }

@@ -19,9 +19,10 @@ import com.example.capstoneproject.ui.theme.colorPrimary
 
 @Composable
 fun SectionText(
+    modifier: Modifier = Modifier,
     title: String,
     viewAll: String,
-    modifier: Modifier = Modifier
+    navigateToListScreen: () -> Unit
 ) {
     Row(
         modifier = modifier.padding(bottom = 12.dp),
@@ -39,7 +40,7 @@ fun SectionText(
         Text(
             text = viewAll,
             style = MaterialTheme.typography.bodyMedium.copy(color = colorPrimary),
-            modifier = modifier.clickable {}
+            modifier = modifier.clickable { navigateToListScreen() }
         )
     }
 }
