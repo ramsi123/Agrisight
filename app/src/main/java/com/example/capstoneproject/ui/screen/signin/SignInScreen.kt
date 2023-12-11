@@ -19,7 +19,6 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.capstoneproject.di.Injection
-import com.example.capstoneproject.navigation.ROOT_ROUTE
 import com.example.capstoneproject.navigation.Screen
 import com.example.capstoneproject.ui.ViewModelFactory
 import com.example.capstoneproject.ui.screen.signin.component.SignIn
@@ -80,7 +79,7 @@ fun SignInScreen(
             password = it
         },
         onSignInWithEmail = { email, password ->
-            viewModel.signInWithEmailAndPassword(email, password)
+            viewModel.signInWithEmail(email, password)
         },
         onSignInWithGoogle = {
             coroutineScope.launch {
@@ -110,7 +109,7 @@ fun SignInScreen(
     SignIn(
         navigateToHomeScreen = {
             navController.navigate(Screen.Dashboard.route) {
-                popUpTo(ROOT_ROUTE) {
+                popUpTo(Screen.Welcome.route) {
                     inclusive = true
                 }
             }

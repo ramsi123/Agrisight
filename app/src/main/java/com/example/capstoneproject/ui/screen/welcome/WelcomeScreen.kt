@@ -24,7 +24,11 @@ fun WelcomeScreen(
     // check current user
     LaunchedEffect(key1 = Unit) {
         if (viewModel.getSignedInUser() != null) {
-            navController.navigate(Screen.Dashboard.route)
+            navController.navigate(Screen.Dashboard.route) {
+                popUpTo(Screen.Welcome.route) {
+                    inclusive = true
+                }
+            }
         }
     }
 

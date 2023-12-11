@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -24,7 +23,14 @@ fun PlantList(
         verticalArrangement = Arrangement.spacedBy(8.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) {
-        itemsIndexed(plants) { index, plant ->
+        items(plants) { plant ->
+            PlantItem(
+                image = plant.image,
+                name = plant.name,
+                latinName = plant.latinName
+            )
+        }
+        /*itemsIndexed(plants) { index, plant ->
             if (index < 4) {
                 PlantItem(
                     image = plant.image,
@@ -32,6 +38,6 @@ fun PlantList(
                     latinName = plant.latinName
                 )
             }
-        }
+        }*/
     }
 }

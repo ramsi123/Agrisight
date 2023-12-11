@@ -6,9 +6,9 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
 import com.example.capstoneproject.components.BottomBar
 import com.example.capstoneproject.components.FloatingActionButton
 import com.example.capstoneproject.ui.screen.dashboard.component.TopBarDashboard
@@ -24,11 +24,11 @@ import com.example.capstoneproject.util.Constants.TOOLS_SCREEN
 @Composable
 fun DashboardScreen(
     modifier: Modifier = Modifier,
-    navController: NavHostController,
     activity: ComponentActivity,
     signOut: () -> Unit
 ) {
-    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val navDashboardController = rememberNavController()
+    val navBackStackEntry by navDashboardController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
 
     Scaffold(
@@ -45,25 +45,25 @@ fun DashboardScreen(
         },
         bottomBar = {
             if (currentRoute == Screen.Home.route || currentRoute == Screen.Tools.route || currentRoute == Screen.Profile.route) {
-                BottomBar(navController = navController)
+                BottomBar(navController = navDashboardController)
             }
         },
         floatingActionButton = {
             if (currentRoute == Screen.Home.route) {
                 FloatingActionButton(onCameraClick = {
-                    navController.navigate(Screen.Camera.route)
+                    navDashboardController.navigate(Screen.Camera.route)
                 })
             }
         }
     ) { innerPadding ->
         NavHost(
-            navController = navController,
+            navController = navDashboardController,
             startDestination = DASHBOARD_ROUTE,
             route = BASE_ROUTE,
             modifier = modifier.padding(innerPadding)
         ) {
             dashboardNavGraph(
-                navController = navController,
+                navController = navDashboardController,
                 activity = activity,
                 signOut = signOut
             )

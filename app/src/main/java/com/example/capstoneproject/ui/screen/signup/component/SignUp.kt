@@ -7,8 +7,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.capstoneproject.components.ProgressBar
 import com.example.capstoneproject.di.Injection
 import com.example.capstoneproject.ui.ViewModelFactory
+import com.example.capstoneproject.ui.common.UiState
 import com.example.capstoneproject.ui.screen.signup.SignUpViewModel
 
 @Composable
@@ -19,9 +21,10 @@ fun SignUp(
     navigateToHomeScreen: () -> Unit
 ) {
     val context = LocalContext.current
-    val state by viewModel.state.collectAsStateWithLifecycle()
+    val state by viewModel.googleAccountState.collectAsStateWithLifecycle()
+    val signUpEmailState = viewModel.signUpEmailState
 
-    // Error handling
+    // Error handling for sign up with google
     LaunchedEffect(key1 = state.signInError) {
         state.signInError?.let { error ->
             Toast.makeText(
@@ -32,6 +35,7 @@ fun SignUp(
         }
     }
 
+    // Success handling for sign up with google
     LaunchedEffect(key1 = state.isSignInSuccessful) {
         if (state.isSignInSuccessful) {
             Toast.makeText(
@@ -41,7 +45,28 @@ fun SignUp(
             ).show()
 
             navigateToHomeScreen()
-            viewModel.resetState()
+            viewModel.resetGoogleAccountState()
+        }
+    }
+
+    // handling for sign up with email
+    when (signUpEmailState) {
+        is UiState.Idle -> {
+            Unit
+        }
+        is UiState.Loading -> {
+            ProgressBar()
+        }
+        is UiState.Success -> {
+            LaunchedEffect(key1 = signUpEmailState) {
+                Toast.makeText(context, "Sign Up Success", Toast.LENGTH_SHORT).show()
+                navigateToHomeScreen()
+            }
+        }
+        is UiState.Error -> signUpEmailState.apply {
+            LaunchedEffect(key1 = signUpEmailState) {
+                Toast.makeText(context, errorMessage, Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }

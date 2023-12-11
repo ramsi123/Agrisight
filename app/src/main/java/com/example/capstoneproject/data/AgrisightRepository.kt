@@ -42,7 +42,7 @@ class AgrisightRepository(
         }
     }
 
-    fun getAllArticles(): List<Article> {
+    fun getArticles(): List<Article> {
         return dummyArticle
     }
 
@@ -137,7 +137,7 @@ class AgrisightRepository(
             .build()
     }
 
-    suspend fun firebaseSignUpWithEmailAndPassword(
+    suspend fun signUpWithEmail(
         email: String, password: String
     ) = try {
         auth.createUserWithEmailAndPassword(email, password).await()
@@ -146,7 +146,7 @@ class AgrisightRepository(
         e.message?.let { UiState.Error(it) }
     }
 
-    suspend fun firebaseSignInWithEmailAndPassword(
+    suspend fun signInWithEmail(
         email: String, password: String
     ) = try {
         auth.signInWithEmailAndPassword(email, password).await()

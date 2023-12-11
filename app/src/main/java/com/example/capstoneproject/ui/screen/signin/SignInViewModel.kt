@@ -20,7 +20,7 @@ class SignInViewModel(private val repository: AgrisightRepository) : ViewModel()
     private val _googleAccountState = MutableStateFlow(SignInState())
     val googleAccountState = _googleAccountState.asStateFlow()
 
-    var signInWithEmailAndPasswordResponse by mutableStateOf<UiState<Boolean>>(UiState.Idle)
+    var signInEmailState by mutableStateOf<UiState<Boolean>>(UiState.Idle)
         private set
 
     suspend fun signInGoogle() = repository.signInGoogle()
@@ -38,10 +38,10 @@ class SignInViewModel(private val repository: AgrisightRepository) : ViewModel()
         _googleAccountState.update { repository.resetGoogleAccountState() }
     }
 
-    fun signInWithEmailAndPassword(email: String, password: String) = viewModelScope.launch {
-        signInWithEmailAndPasswordResponse = UiState.Loading
-        signInWithEmailAndPasswordResponse =
-            repository.firebaseSignInWithEmailAndPassword(email, password) ?: UiState.Success(false)
+    fun signInWithEmail(email: String, password: String) = viewModelScope.launch {
+        signInEmailState = UiState.Loading
+        signInEmailState =
+            repository.signInWithEmail(email, password) ?: UiState.Success(false)
     }
 
 }

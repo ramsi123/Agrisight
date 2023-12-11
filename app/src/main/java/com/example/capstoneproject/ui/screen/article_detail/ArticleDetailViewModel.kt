@@ -8,8 +8,14 @@ import kotlinx.coroutines.flow.StateFlow
 
 class ArticleDetailViewModel(private val repository: AgrisightRepository) : ViewModel() {
 
-    private val _article:
-            MutableStateFlow<Article> = MutableStateFlow(Article("", 1, "", "", "", ""))
+    private val _article: MutableStateFlow<Article> = MutableStateFlow(Article(
+        "",
+        1,
+        "",
+        "",
+        "",
+        ""
+    ))
     val article: StateFlow<Article> = _article
 
     fun getArticle(articleId: String) {

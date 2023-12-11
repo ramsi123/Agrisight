@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.StateFlow
 class ArticleListViewModel(private val repository: AgrisightRepository) : ViewModel() {
 
     private val _articles = MutableStateFlow(
-        repository.getAllArticles()
+        repository.getArticles()
     )
     val articles: StateFlow<List<Article>> = _articles
 

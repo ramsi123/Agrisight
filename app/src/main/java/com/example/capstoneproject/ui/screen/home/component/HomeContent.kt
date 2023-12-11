@@ -48,7 +48,8 @@ fun HomeContent(
     plants: List<Plant>,
     articles: List<Article>,
     navigateToPlantListScreen: () -> Unit,
-    navigateToArticleListScreen: () -> Unit
+    navigateToArticleListScreen: () -> Unit,
+    navigateToArticleDetailScreen: (String) -> Unit
 ) {
     Surface(modifier = modifier.fillMaxSize(), color = colorPrimary) {
         Card(
@@ -127,7 +128,10 @@ fun HomeContent(
                     viewAll = VIEW_ALL,
                     navigateToListScreen = { navigateToArticleListScreen() }
                 ) {
-                    ArticleList(articles = articles)
+                    ArticleList(
+                        articles = articles,
+                        onCLick = navigateToArticleDetailScreen
+                    )
                 }
             }
         }

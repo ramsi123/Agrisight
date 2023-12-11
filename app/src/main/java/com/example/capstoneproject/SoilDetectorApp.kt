@@ -20,7 +20,6 @@ fun SoilDetectorApp(
     activity: ComponentActivity
 ) {
     val navAuthController = rememberNavController()
-    val navDashboardController = rememberNavController()
 
     NavHost(
         navController = navAuthController,
@@ -31,11 +30,13 @@ fun SoilDetectorApp(
         authNavGraph(navController = navAuthController)
         composable(Screen.Dashboard.route) {
             DashboardScreen(
-                navController = navDashboardController,
                 activity = activity,
                 signOut = {
-                    navAuthController.popBackStack()
-                    navAuthController.navigate(ROOT_ROUTE)
+                    navAuthController.navigate(ROOT_ROUTE) {
+                        popUpTo(Screen.Dashboard.route) {
+                            inclusive = true
+                        }
+                    }
                 }
             )
         }

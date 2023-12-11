@@ -3,9 +3,9 @@ package com.example.capstoneproject.util
 object Constants {
 
     // Buttons
-    const val SIGN_IN_BUTTON = "Sign in"
+    const val SIGN_IN_BUTTON = "Sign In"
     const val RESET_PASSWORD_BUTTON = "Reset"
-    const val SIGN_UP_BUTTON = "Sign up"
+    const val SIGN_UP_BUTTON = "Sign Up"
     const val GOOGLE_SIGN_IN_BUTTON = "Sign In with Google"
     const val GOOGLE_SIGN_UP_BUTTON = "Sign Up with Google"
     const val LEARNING_CARD_BUTTON = "Mulai Belajar"

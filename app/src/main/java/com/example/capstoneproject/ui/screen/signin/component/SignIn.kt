@@ -7,6 +7,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.capstoneproject.components.ProgressBar
 import com.example.capstoneproject.di.Injection
 import com.example.capstoneproject.ui.ViewModelFactory
 import com.example.capstoneproject.ui.common.UiState
@@ -21,7 +22,7 @@ fun SignIn(
 ) {
     val context = LocalContext.current
     val signInGoogleState by viewModel.googleAccountState.collectAsStateWithLifecycle()
-    val signInEmailState = viewModel.signInWithEmailAndPasswordResponse
+    val signInEmailState = viewModel.signInEmailState
 
     // Error handling for sign in with google
     LaunchedEffect(key1 = signInGoogleState.signInError) {
@@ -48,15 +49,22 @@ fun SignIn(
         }
     }
 
-    // handling for sign in with email and password
-    LaunchedEffect(key1 = signInEmailState) {
-        when (signInEmailState) {
-            is UiState.Idle -> {}
-            is UiState.Loading -> {}
-            is UiState.Success -> {
+    // handling for sign in with email
+    when (signInEmailState) {
+        is UiState.Idle -> {
+            Unit
+        }
+        is UiState.Loading -> {
+            ProgressBar()
+        }
+        is UiState.Success -> {
+            LaunchedEffect(key1 = signInEmailState) {
                 Toast.makeText(context, "Sign In Success", Toast.LENGTH_SHORT).show()
+                navigateToHomeScreen()
             }
-            is UiState.Error -> signInEmailState.apply {
+        }
+        is UiState.Error -> signInEmailState.apply {
+            LaunchedEffect(key1 = signInEmailState) {
                 Toast.makeText(context, errorMessage, Toast.LENGTH_SHORT).show()
             }
         }
