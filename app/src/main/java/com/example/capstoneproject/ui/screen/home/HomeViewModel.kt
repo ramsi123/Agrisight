@@ -6,6 +6,8 @@ import com.example.capstoneproject.data.model.Article
 import com.example.capstoneproject.data.model.Plant
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.forEach
 
 class HomeViewModel(private val repository: AgrisightRepository) : ViewModel() {
 
@@ -15,8 +17,10 @@ class HomeViewModel(private val repository: AgrisightRepository) : ViewModel() {
     val plants: StateFlow<List<Plant>> = _plants
 
     private val _articles = MutableStateFlow(
-        repository.getArticles()
+        repository.getAllArticles()
     )
     val articles: StateFlow<List<Article>> = _articles
+
+    fun getPlants() {}
 
 }

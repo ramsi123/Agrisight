@@ -55,6 +55,7 @@ object Constants {
     const val PLANT_LIST_TITLE = "Tanaman"
     const val SEARCH_BAR_PLANT_LIST = "Cari Tanaman"
     const val ARTICLE_LIST_TITLE = "Artikel"
+    const val ARTICLE_DETAIL_TITLE = "Detail Artikel"
     const val SEARCH_BAR_ARTICLE_LIST = "Cari Artikel"
 
     // image description

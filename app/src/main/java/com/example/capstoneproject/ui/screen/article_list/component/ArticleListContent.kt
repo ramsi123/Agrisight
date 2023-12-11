@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import com.example.capstoneproject.components.SearchBar
 import com.example.capstoneproject.data.model.Article
 import com.example.capstoneproject.components.TopBar
+import com.example.capstoneproject.util.Constants.ARTICLE_LIST_TITLE
 import com.example.capstoneproject.util.Constants.SEARCH_BAR_ARTICLE_LIST
 
 @Composable
@@ -18,12 +19,12 @@ fun ArticleListContent(
     query: String,
     onQueryChange: (String) -> Unit,
     articles: List<Article>,
-    screenTitle: String,
+    onClicked: (String) -> Unit,
     navigateBack: () -> Unit
 ) {
     Scaffold(
         topBar = {
-            TopBar(title = screenTitle, navigateBack = { navigateBack() })
+            TopBar(title = ARTICLE_LIST_TITLE, navigateBack = { navigateBack() })
         }
     ) { innerPadding ->
         LazyColumn(
@@ -31,10 +32,17 @@ fun ArticleListContent(
             contentPadding = innerPadding
         ) {
             item {
-                SearchBar(query = query, onQueryChange = onQueryChange, placeholder = SEARCH_BAR_ARTICLE_LIST)
+                SearchBar(
+                    query = query,
+                    onQueryChange = onQueryChange,
+                    placeholder = SEARCH_BAR_ARTICLE_LIST
+                )
             }
             items(items = articles) { article ->
-                ArticleListItem(image = article.image, title = article.title, time = article.time, category = article.category)
+                ArticleListItem(
+                    article = article,
+                    onClicked = onClicked
+                )
             }
         }
     }

@@ -18,7 +18,7 @@ fun PlantList(
     plants: List<Plant>
 ) {
     LazyVerticalGrid(
-        modifier = modifier.heightIn(max = 125.dp),
+        modifier = modifier.heightIn(max = 125.dp, min = 100.dp),
         columns = GridCells.Fixed(2),
         contentPadding = PaddingValues(bottom = 4.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),

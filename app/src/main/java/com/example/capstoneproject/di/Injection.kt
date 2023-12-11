@@ -7,7 +7,6 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 object Injection {
-
     fun provideAgrisightRepository(context: Context): AgrisightRepository {
         val auth = Firebase.auth
         val oneTapClient = Identity.getSignInClient(context)

@@ -60,10 +60,10 @@ fun SignInScreen(
         onResult = { result ->
             if (result.resultCode == ComponentActivity.RESULT_OK) {
                 coroutineScope.launch {
-                    val signInResult = viewModel.signInWithIntent(
+                    val signInResult = viewModel.signInWithIntentGoogle(
                         intent = result.data ?: return@launch
                     )
-                    viewModel.onSignInResult(signInResult)
+                    viewModel.onSignInGoogleResult(signInResult)
                 }
             }
         }
@@ -79,10 +79,12 @@ fun SignInScreen(
         onPasswordChange = {
             password = it
         },
-        onSignInWithEmail = { _, _ -> },
+        onSignInWithEmail = { email, password ->
+            viewModel.signInWithEmailAndPassword(email, password)
+        },
         onSignInWithGoogle = {
             coroutineScope.launch {
-                val signInIntentSender = viewModel.signIn()
+                val signInIntentSender = viewModel.signInGoogle()
                 launcher.launch(
                     IntentSenderRequest.Builder(
                         signInIntentSender ?: return@launch

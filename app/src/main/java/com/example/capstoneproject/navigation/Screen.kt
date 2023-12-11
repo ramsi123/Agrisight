@@ -1,5 +1,6 @@
 package com.example.capstoneproject.navigation
 
+import com.example.capstoneproject.util.Constants.ARTICLE_DETAIL_SCREEN
 import com.example.capstoneproject.util.Constants.ARTICLE_LIST_SCREEN
 import com.example.capstoneproject.util.Constants.CAMERA_SCREEN
 import com.example.capstoneproject.util.Constants.DASHBOARD_SCREEN
@@ -33,4 +34,7 @@ sealed class Screen(val route: String) {
     }
     object PlantList : Screen(PLANT_LIST_SCREEN)
     object ArticleList : Screen(ARTICLE_LIST_SCREEN)
+    object ArticleDetail : Screen("$ARTICLE_DETAIL_SCREEN/{id}") {
+        fun articleDetailRoute(id: String) = "$ARTICLE_DETAIL_SCREEN/$id"
+    }
 }

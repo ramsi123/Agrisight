@@ -17,11 +17,6 @@ import com.google.android.gms.auth.api.identity.BeginSignInRequest
 import com.google.android.gms.auth.api.identity.SignInClient
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.channels.awaitClose
-import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.callbackFlow
-import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.tasks.await
 import kotlin.coroutines.cancellation.CancellationException
 
@@ -47,8 +42,14 @@ class AgrisightRepository(
         }
     }
 
-    fun getArticles(): List<Article> {
+    fun getAllArticles(): List<Article> {
         return dummyArticle
+    }
+
+    fun getArticle(articleId: String): List<Article> {
+        return dummyArticle.filter {
+            it.id.contains(articleId, ignoreCase = true)
+        }
     }
 
     fun searchArticles(query: String): List<Article> {
@@ -57,7 +58,7 @@ class AgrisightRepository(
         }
     }
 
-    suspend fun signIn(): IntentSender? {
+    suspend fun signInGoogle(): IntentSender? {
         val result = try {
             oneTapClient.beginSignIn(
                 buildSignInRequest()
@@ -71,7 +72,7 @@ class AgrisightRepository(
         return result?.pendingIntent?.intentSender
     }
 
-    suspend fun signInWithIntent(intent: Intent): SignInResult {
+    suspend fun signInWithIntentGoogle(intent: Intent): SignInResult {
         val credential = oneTapClient.getSignInCredentialFromIntent(intent)
         val googleIdToken = credential.googleIdToken
         val googleCredentials = GoogleAuthProvider.getCredential(googleIdToken, null)
@@ -107,11 +108,11 @@ class AgrisightRepository(
         }
     }
 
-    fun onSignInResult(result: SignInResult): SignInResult {
+    fun onSignInGoogleResult(result: SignInResult): SignInResult {
         return result
     }
 
-    fun resetState(): SignInState {
+    fun resetGoogleAccountState(): SignInState {
         return SignInState()
     }
 
@@ -136,19 +137,10 @@ class AgrisightRepository(
             .build()
     }
 
-    val currentUser get() = auth.currentUser
-
     suspend fun firebaseSignUpWithEmailAndPassword(
         email: String, password: String
     ) = try {
         auth.createUserWithEmailAndPassword(email, password).await()
-        UiState.Success(true)
-    } catch (e: Exception) {
-        e.message?.let { UiState.Error(it) }
-    }
-
-    suspend fun sendEmailVerification() = try {
-        auth.currentUser?.sendEmailVerification()?.await()
         UiState.Success(true)
     } catch (e: Exception) {
         e.message?.let { UiState.Error(it) }
@@ -162,39 +154,6 @@ class AgrisightRepository(
     } catch (e: Exception) {
         e.message?.let { UiState.Error(it) }
     }
-
-    suspend fun reloadFirebaseUser() = try {
-        auth.currentUser?.reload()?.await()
-        UiState.Success(true)
-    } catch (e: Exception) {
-        e.message?.let { UiState.Error(it) }
-    }
-
-    suspend fun sendPasswordResetEmail(email: String) = try {
-        auth.sendPasswordResetEmail(email).await()
-        UiState.Success(true)
-    } catch (e: Exception) {
-        e.message?.let { UiState.Error(it) }
-    }
-
-    fun signOut2() = auth.signOut()
-
-    suspend fun revokeAccess() = try {
-        auth.currentUser?.delete()?.await()
-        UiState.Success(true)
-    } catch (e: Exception) {
-        e.message?.let { UiState.Error(it) }
-    }
-
-    fun getAuthState(viewModelScope: CoroutineScope) = callbackFlow {
-        val authStateListener = FirebaseAuth.AuthStateListener { auth ->
-            trySend(auth.currentUser == null)
-        }
-        auth.addAuthStateListener(authStateListener)
-        awaitClose {
-            auth.removeAuthStateListener(authStateListener)
-        }
-    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(), auth.currentUser == null)
 
     companion object {
         @SuppressLint("StaticFieldLeak")

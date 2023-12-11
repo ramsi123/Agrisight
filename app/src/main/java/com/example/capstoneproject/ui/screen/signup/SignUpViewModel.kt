@@ -14,11 +14,11 @@ class SignUpViewModel(private val repository: AgrisightRepository) : ViewModel()
     private val _state = MutableStateFlow(SignInState())
     val state = _state.asStateFlow()
 
-    suspend fun signIn() = repository.signIn()
-    suspend fun signInWithIntent(intent: Intent) = repository.signInWithIntent(intent)
+    suspend fun signIn() = repository.signInGoogle()
+    suspend fun signInWithIntent(intent: Intent) = repository.signInWithIntentGoogle(intent)
 
     fun onSignInResult(result: SignInResult) {
-        val signInResult = repository.onSignInResult(result)
+        val signInResult = repository.onSignInGoogleResult(result)
         _state.update { it.copy(
             isSignInSuccessful = signInResult.data != null,
             signInError = signInResult.errorMessage
@@ -26,7 +26,7 @@ class SignUpViewModel(private val repository: AgrisightRepository) : ViewModel()
     }
 
     fun resetState() {
-        _state.update { repository.resetState() }
+        _state.update { repository.resetGoogleAccountState() }
     }
 
 }

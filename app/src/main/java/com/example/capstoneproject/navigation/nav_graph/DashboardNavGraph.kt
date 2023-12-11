@@ -9,6 +9,7 @@ import androidx.navigation.navArgument
 import androidx.navigation.navigation
 import com.example.capstoneproject.navigation.DASHBOARD_ROUTE
 import com.example.capstoneproject.navigation.Screen
+import com.example.capstoneproject.ui.screen.article_detail.ArticleDetailScreen
 import com.example.capstoneproject.ui.screen.article_list.ArticleListScreen
 import com.example.capstoneproject.ui.screen.camera.CameraScreen
 import com.example.capstoneproject.ui.screen.home.HomeScreen
@@ -48,8 +49,8 @@ fun NavGraphBuilder.dashboardNavGraph(
                 navArgument("score") { type = NavType.FloatType }
             )
         ) {
-            val title = it.arguments?.getString("title") ?: ""
-            val score = it.arguments?.getFloat("score") ?: 0F
+            val title = it.arguments?.getString("title") ?: "Unscanned"
+            val score = it.arguments?.getFloat("score") ?: 1F
             ResultScreen(
                 navController = navController,
                 title = title,
@@ -61,6 +62,15 @@ fun NavGraphBuilder.dashboardNavGraph(
         }
         composable(Screen.ArticleList.route) {
             ArticleListScreen(navController = navController)
+        }
+        composable(
+            route = Screen.ArticleDetail.route,
+            arguments = listOf(
+                navArgument("id") { type = NavType.StringType }
+            )
+        ) {
+            val id = it.arguments?.getString("id") ?: "1"
+            ArticleDetailScreen(navController = navController, articleId = id)
         }
     }
 }
