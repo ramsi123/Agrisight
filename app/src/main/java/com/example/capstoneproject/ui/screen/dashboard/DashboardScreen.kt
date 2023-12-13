@@ -17,7 +17,6 @@ import com.example.capstoneproject.navigation.DASHBOARD_ROUTE
 import com.example.capstoneproject.navigation.Screen
 import com.example.capstoneproject.navigation.nav_graph.dashboardNavGraph
 import com.example.capstoneproject.util.Constants.PROFILE_SCREEN
-import com.example.capstoneproject.util.Constants.RESULT_SCREEN
 import com.example.capstoneproject.util.Constants.TITLE
 import com.example.capstoneproject.util.Constants.TOOLS_SCREEN
 
@@ -33,12 +32,11 @@ fun DashboardScreen(
 
     Scaffold(
         topBar = {
-            if (currentRoute == Screen.Home.route || currentRoute == Screen.Tools.route || currentRoute == Screen.Profile.route || currentRoute == Screen.Result.route) {
+            if (currentRoute == Screen.Home.route || currentRoute == Screen.Tools.route || currentRoute == Screen.Profile.route) {
                 val title = when (currentRoute) {
                     Screen.Home.route -> TITLE
                     Screen.Tools.route -> TOOLS_SCREEN
-                    Screen.Profile.route -> PROFILE_SCREEN
-                    else -> RESULT_SCREEN
+                    else -> PROFILE_SCREEN
                 }
                 TopBarDashboard(title = title)
             }

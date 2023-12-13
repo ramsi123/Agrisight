@@ -40,6 +40,8 @@ private val LightColorScheme = lightColorScheme(
     */
 )
 
+// change the dynamicDarkColorScheme to dynamicLightColorScheme
+// change the darkTheme -> DarkColorScheme to darkTheme -> LightColorScheme
 @Composable
 fun CapstoneProjectTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
@@ -50,10 +52,10 @@ fun CapstoneProjectTheme(
     val colorScheme = when {
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
             val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
+            if (darkTheme) dynamicLightColorScheme(context) else dynamicLightColorScheme(context)
         }
 
-        darkTheme -> DarkColorScheme
+        darkTheme -> LightColorScheme
         else -> LightColorScheme
     }
     val view = LocalView.current

@@ -1,10 +1,11 @@
-package com.example.capstoneproject.ui.screen.home.component
+package com.example.capstoneproject.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -38,11 +39,14 @@ fun ArticleItem(
     onCLick: (String) -> Unit
 ) {
     Card(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(bottom = 8.dp),
+        colors = CardDefaults.cardColors(containerColor = Color.White),
+        elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
         onClick = {
             onCLick(article.id)
-        },
-        colors = CardDefaults.cardColors(containerColor = Color.White),
-        elevation = CardDefaults.cardElevation(defaultElevation = 1.dp)
+        }
     ) {
         Row(
             modifier = modifier.padding(12.dp),
@@ -91,57 +95,6 @@ fun ArticleItem(
             )
         }
     }
-    /*Card(
-        colors = CardDefaults.cardColors(containerColor = Color.White),
-        elevation = CardDefaults.cardElevation(defaultElevation = 1.dp)
-    ) {
-        Row(
-            modifier = modifier.padding(12.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Column(
-                modifier = modifier.weight(1f),
-                horizontalAlignment = Alignment.Start
-            ) {
-                Box(
-                    modifier = modifier
-                        .clip(RoundedCornerShape(10.dp))
-                        .background(color = colorPrimary),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Text(
-                        modifier = modifier.padding(vertical = 4.dp, horizontal = 6.dp),
-                        text = category,
-                        color = Color.White,
-                        fontFamily = FontFamily(Font(R.font.helvetica_neue_medium)),
-                        fontSize = 8.sp
-                    )
-                }
-                Text(
-                    modifier = modifier.padding(top = 5.dp, bottom = 3.dp),
-                    text = title,
-                    color = Color.Black,
-                    fontFamily = FontFamily(Font(R.font.helvetica_neue_bold)),
-                    fontSize = 14.sp,
-                    lineHeight = 16.sp
-                )
-                Text(
-                    text = time,
-                    color = lightGray,
-                    fontFamily = FontFamily(Font(R.font.helvetica_neue_regular)),
-                    fontSize = 12.sp
-                )
-            }
-            Image(
-                modifier = modifier
-                    .size(40.dp)
-                    .clip(CircleShape),
-                painter = painterResource(image),
-                contentDescription = null,
-                contentScale = ContentScale.Crop
-            )
-        }
-    }*/
 }
 
 @Preview(showBackground = true)

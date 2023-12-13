@@ -1,9 +1,10 @@
-package com.example.capstoneproject.ui.screen.home.component
+package com.example.capstoneproject.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Card
@@ -30,6 +31,9 @@ fun PlantItem(
     latinName: String
 ) {
     Card(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(bottom = 8.dp),
         colors = CardDefaults.cardColors(containerColor = Color.White),
         elevation = CardDefaults.cardElevation(defaultElevation = 1.dp)
     ) {

@@ -2,6 +2,9 @@ package com.example.capstoneproject.ui.screen.profile
 
 import android.widget.Toast
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -23,9 +26,15 @@ fun ProfileScreen(
 ) {
     val context = LocalContext.current
     val coroutineScope = rememberCoroutineScope()
+    val user by viewModel.user.collectAsState()
+
+    LaunchedEffect(key1 = true) {
+        viewModel.getSignedInUser()
+    }
 
     ProfileContent(
         modifier = modifier,
+        user = user,
         signOut = {
             coroutineScope.launch {
                 viewModel.signOut()

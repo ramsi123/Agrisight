@@ -9,6 +9,7 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.capstoneproject.components.PlantItem
 import com.example.capstoneproject.data.model.Plant
 
 @Composable
@@ -17,10 +18,9 @@ fun PlantList(
     plants: List<Plant>
 ) {
     LazyVerticalGrid(
-        modifier = modifier.heightIn(max = 125.dp, min = 100.dp),
+        modifier = modifier.heightIn(max = 125.dp),
         columns = GridCells.Fixed(2),
         contentPadding = PaddingValues(bottom = 4.dp),
-        verticalArrangement = Arrangement.spacedBy(8.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         items(plants) { plant ->
@@ -30,14 +30,5 @@ fun PlantList(
                 latinName = plant.latinName
             )
         }
-        /*itemsIndexed(plants) { index, plant ->
-            if (index < 4) {
-                PlantItem(
-                    image = plant.image,
-                    name = plant.name,
-                    latinName = plant.latinName
-                )
-            }
-        }*/
     }
 }

@@ -57,7 +57,11 @@ object Constants {
     const val ARTICLE_LIST_TITLE = "Artikel"
     const val ARTICLE_DETAIL_TITLE = "Detail Artikel"
     const val SEARCH_BAR_ARTICLE_LIST = "Cari Artikel"
+    const val SIGN_OUT = "Sign Out"
+    const val SOIL_RESULT = "Soil Result"
+    const val PLANT_RECOMMENDATION = "Plants Recommendation"
 
     // image description
     const val GREEN_HOUSE = "Green house"
+    const val PROFILE_PICTURE = "Profile Picture"
 }

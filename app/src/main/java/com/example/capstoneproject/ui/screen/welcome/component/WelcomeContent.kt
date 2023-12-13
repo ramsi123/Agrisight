@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -51,8 +52,8 @@ fun WelcomeContent(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Image(
-                modifier = Modifier.wrapContentWidth(),
-                bitmap = ImageBitmap.imageResource(id = R.drawable.flower_logo),
+                modifier = Modifier.size(50.dp),
+                bitmap = ImageBitmap.imageResource(id = R.drawable.soil),
                 contentDescription = "header_view_soil_logo"
             )
             Text(
