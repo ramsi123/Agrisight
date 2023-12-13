@@ -8,8 +8,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material.icons.filled.Person
@@ -53,13 +55,14 @@ fun ProfileContent(
             Column(
                 modifier = modifier
                     .fillMaxSize()
-                    .padding(start = 20.dp, top = 20.dp, end = 20.dp),
+                    .padding(start = 20.dp, top = 20.dp, end = 20.dp)
+                    .verticalScroll(rememberScrollState()),
                 verticalArrangement = Arrangement.Top,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 if (user.profilePictureUrl.isNullOrEmpty()) {
                     Image(
-                        modifier = modifier.size(120.dp),
+                        modifier = modifier.size(100.dp),
                         imageVector = Icons.Default.Person,
                         contentDescription = PROFILE_PICTURE
                     )
@@ -75,13 +78,15 @@ fun ProfileContent(
                 }
                 Text(
                     modifier = modifier.padding(top = 10.dp, bottom = 15.dp),
-                    text = user.username ?: "",
+                    text = user.email ?: "",
                     color = Color.Black,
                     fontFamily = FontFamily(Font(R.font.helvetica_neue_bold)),
                     fontSize = 22.sp
                 )
                 Card(
-                    modifier = modifier.fillMaxWidth(),
+                    modifier = modifier
+                        .fillMaxWidth()
+                        .padding(bottom = 20.dp),
                     onClick = signOut,
                     colors = CardDefaults.cardColors(containerColor = Color.White, contentColor = Color.Black),
                     elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)

@@ -8,8 +8,10 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.wrapContentWidth
+import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
@@ -23,6 +25,7 @@ import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.capstoneproject.R
@@ -31,6 +34,8 @@ import com.example.capstoneproject.ui.theme.ghostWhite
 import com.example.capstoneproject.util.Constants.SIGN_IN_BUTTON
 import com.example.capstoneproject.util.Constants.SIGN_UP_BUTTON
 import com.example.capstoneproject.util.Constants.TITLE
+import com.example.capstoneproject.util.Constants.WELCOME_DESCRIPTION
+import com.example.capstoneproject.util.Constants.WELCOME_PICTURE
 
 @Composable
 fun WelcomeContent(
@@ -46,50 +51,70 @@ fun WelcomeContent(
         Column(
             modifier = modifier
                 .fillMaxSize()
-                .background(color = colorPrimary)
-                .padding(16.dp),
-            verticalArrangement = Arrangement.Center,
+                .background(ghostWhite)
+                .padding(horizontal = 16.dp, vertical = 32.dp)
+                .verticalScroll(rememberScrollState()),
+            verticalArrangement = Arrangement.Bottom,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Image(
-                modifier = Modifier.size(50.dp),
+                modifier = Modifier
+                    .wrapContentSize()
+                    .padding(bottom = 50.dp),
                 bitmap = ImageBitmap.imageResource(id = R.drawable.soil),
-                contentDescription = "header_view_soil_logo"
+                contentDescription = WELCOME_PICTURE
             )
             Text(
+                modifier = modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 5.dp),
                 text = TITLE,
-                color = Color.White,
+                color = Color.Black,
                 style = TextStyle(
-                    fontSize = 40.sp,
-                    fontFamily = FontFamily(Font(R.font.josefin_sans_semibold_italic)),
-                    letterSpacing = 2.sp
-                )
+                    fontSize = 30.sp,
+                    fontFamily = FontFamily(Font(R.font.helvetica_neue_bold)),
+                    letterSpacing = 1.sp
+                ),
+                textAlign = TextAlign.Start
+            )
+            Text(
+                modifier = modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 40.dp),
+                text = WELCOME_DESCRIPTION,
+                color = Color.Black,
+                style = TextStyle(
+                    fontSize = 18.sp,
+                    fontFamily = FontFamily(Font(R.font.helvetica_neue_regular))
+                ),
+                textAlign = TextAlign.Start,
+                lineHeight = 20.sp
             )
             Button(
                 modifier = modifier
                     .fillMaxWidth()
-                    .padding(top = 15.dp, bottom = 10.dp),
+                    .padding(bottom = 10.dp),
                 onClick = navigateToSignUpScreen,
-                colors = ButtonDefaults.buttonColors(containerColor = ghostWhite)
+                colors = ButtonDefaults.buttonColors(containerColor = colorPrimary, contentColor = ghostWhite),
+                shape = RoundedCornerShape(20.dp)
             ) {
                 Text(
                     modifier = modifier
                         .padding(top = 8.dp, bottom = 8.dp),
                     text = SIGN_UP_BUTTON,
-                    color = colorPrimary,
                     style = MaterialTheme.typography.bodyLarge
                 )
             }
             Button(
                 modifier = modifier.fillMaxWidth(),
                 onClick = navigateToSignInScreen,
-                colors = ButtonDefaults.buttonColors(containerColor = ghostWhite)
+                colors = ButtonDefaults.buttonColors(containerColor = colorPrimary, contentColor = ghostWhite),
+                shape = RoundedCornerShape(20.dp)
             ) {
                 Text(
                     modifier = modifier
                         .padding(top = 8.dp, bottom = 8.dp),
                     text = SIGN_IN_BUTTON,
-                    color = colorPrimary,
                     style = MaterialTheme.typography.bodyLarge
                 )
             }

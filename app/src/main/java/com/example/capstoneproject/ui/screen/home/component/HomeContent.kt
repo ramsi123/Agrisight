@@ -74,9 +74,13 @@ fun HomeContent(
                     elevation = CardDefaults.cardElevation(defaultElevation = 1.dp)
                 ) {
                     Box(
-                        modifier = modifier.padding(16.dp)
+                        modifier = modifier
+                            .fillMaxWidth()
+                            .padding(16.dp)
                     ) {
                         Row(
+                            modifier = modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween,
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             Image(

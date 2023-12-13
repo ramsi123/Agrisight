@@ -82,7 +82,7 @@ class AgrisightRepository(
                 data = user?.run {
                     UserData(
                         userId = uid,
-                        username = displayName,
+                        email = displayName,
                         profilePictureUrl = photoUrl?.toString()
                     )
                 },
@@ -119,7 +119,7 @@ class AgrisightRepository(
     fun getSignedInUser(): UserData? = auth.currentUser?.run {
         UserData(
             userId = uid,
-            username = displayName,
+            email = email,
             profilePictureUrl = photoUrl?.toString()
         )
     }
@@ -150,6 +150,13 @@ class AgrisightRepository(
         email: String, password: String
     ) = try {
         auth.signInWithEmailAndPassword(email, password).await()
+        UiState.Success(true)
+    } catch (e: Exception) {
+        e.message?.let { UiState.Error(it) }
+    }
+
+    suspend fun resetPassword(email: String) = try {
+        auth.sendPasswordResetEmail(email).await()
         UiState.Success(true)
     } catch (e: Exception) {
         e.message?.let { UiState.Error(it) }

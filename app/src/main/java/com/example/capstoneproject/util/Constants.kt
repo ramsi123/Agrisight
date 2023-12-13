@@ -22,7 +22,6 @@ object Constants {
     const val CAMERA_SCREEN = "Camera"
     const val RESULT_SCREEN = "Result"
     const val PLANT_LIST_SCREEN = "Plant List"
-    const val PLANT_DETAIL_SCREEN = "Plant Detail"
     const val ARTICLE_LIST_SCREEN = "Article List"
     const val ARTICLE_DETAIL_SCREEN = "Article Detail"
 
@@ -36,6 +35,7 @@ object Constants {
 
     // Texts
     const val TITLE = "Agrisight"
+    const val WELCOME_DESCRIPTION = "Utilize an unused soil with the helps of Agrisight Soil Detector to get the plants recommendation"
     const val SIGN_UP_TITLE = "Create your new account"
     const val SIGN_UP_TITLE_WORD = "Create"
     const val SIGN_UP = "Sign Up"
@@ -64,4 +64,5 @@ object Constants {
     // image description
     const val GREEN_HOUSE = "Green house"
     const val PROFILE_PICTURE = "Profile Picture"
+    const val WELCOME_PICTURE = "Welcome Picture"
 }

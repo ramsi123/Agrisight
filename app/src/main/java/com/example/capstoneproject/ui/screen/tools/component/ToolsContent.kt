@@ -45,7 +45,7 @@ fun ToolsContent(
                 LazyVerticalGrid(
                     modifier = modifier.heightIn(max = 500.dp),
                     columns = GridCells.Fixed(2),
-                    contentPadding = PaddingValues(bottom = 4.dp),
+                    contentPadding = PaddingValues(bottom = 20.dp),
                     verticalArrangement = Arrangement.spacedBy(10.dp),
                     horizontalArrangement = Arrangement.spacedBy(10.dp)
                 ) {

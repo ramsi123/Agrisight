@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.capstoneproject.data.AgrisightRepository
 import com.example.capstoneproject.ui.screen.article_detail.ArticleDetailViewModel
 import com.example.capstoneproject.ui.screen.article_list.ArticleListViewModel
+import com.example.capstoneproject.ui.screen.forgot_password.ForgotPasswordViewModel
 import com.example.capstoneproject.ui.screen.home.HomeViewModel
 import com.example.capstoneproject.ui.screen.plant_list.PlantListViewModel
 import com.example.capstoneproject.ui.screen.profile.ProfileViewModel
@@ -35,6 +36,8 @@ class ViewModelFactory(private val repository: AgrisightRepository) : ViewModelP
             return ArticleDetailViewModel(repository) as T
         } else if (modelClass.isAssignableFrom(ResultViewModel::class.java)) {
             return ResultViewModel(repository) as T
+        } else if (modelClass.isAssignableFrom(ForgotPasswordViewModel::class.java)) {
+            return ForgotPasswordViewModel(repository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
     }

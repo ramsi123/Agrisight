@@ -74,12 +74,15 @@ fun ArticleDetailContent(
                     }
                 }
                 Text(
-                    modifier = modifier.padding(top = 5.dp, bottom = 5.dp),
+                    modifier = modifier
+                        .fillMaxWidth()
+                        .padding(top = 5.dp, bottom = 5.dp),
                     text = article.title,
                     color = Color.Black,
                     fontFamily = FontFamily(Font(R.font.helvetica_neue_bold)),
                     fontSize = 18.sp,
-                    lineHeight = 22.sp
+                    lineHeight = 22.sp,
+                    textAlign = TextAlign.Start
                 )
                 Text(
                     modifier = modifier.fillMaxWidth(),
