@@ -8,12 +8,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.capstoneproject.components.ArticleItem
-import com.example.capstoneproject.data.model.Article
+import com.example.capstoneproject.data.remote.response.ArticlesItem
 
 @Composable
 fun ArticleList(
     modifier: Modifier = Modifier,
-    articles: List<Article>,
+    articles: List<ArticlesItem>,
     onCLick: (String) -> Unit
 ) {
     LazyColumn(

@@ -7,8 +7,8 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.example.capstoneproject.components.SearchBar
-import com.example.capstoneproject.data.model.Article
 import com.example.capstoneproject.components.TopBar
+import com.example.capstoneproject.data.remote.response.ArticlesItem
 import com.example.capstoneproject.util.Constants.ARTICLE_LIST_TITLE
 import com.example.capstoneproject.util.Constants.SEARCH_BAR_ARTICLE_LIST
 
@@ -18,7 +18,7 @@ fun ArticleListContent(
     listState: LazyListState,
     query: String,
     onQueryChange: (String) -> Unit,
-    articles: List<Article>,
+    articles: List<ArticlesItem>,
     onClicked: (String) -> Unit,
     navigateBack: () -> Unit
 ) {

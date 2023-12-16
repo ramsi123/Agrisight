@@ -1,6 +1,5 @@
 package com.example.capstoneproject.ui.screen.article_detail.component
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -19,15 +18,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImage
 import com.example.capstoneproject.R
 import com.example.capstoneproject.components.TopBar
-import com.example.capstoneproject.data.model.Article
+import com.example.capstoneproject.data.remote.response.ArticleItem
 import com.example.capstoneproject.ui.theme.colorPrimary
 import com.example.capstoneproject.ui.theme.lightGray
 import com.example.capstoneproject.util.Constants.ARTICLE_DETAIL_TITLE
@@ -35,7 +34,7 @@ import com.example.capstoneproject.util.Constants.ARTICLE_DETAIL_TITLE
 @Composable
 fun ArticleDetailContent(
     modifier: Modifier = Modifier,
-    article: Article,
+    article: ArticleItem,
     navigateBack: () -> Unit
 ) {
     Scaffold(
@@ -66,7 +65,7 @@ fun ArticleDetailContent(
                     ) {
                         Text(
                             modifier = modifier.padding(vertical = 4.dp, horizontal = 6.dp),
-                            text = article.category,
+                            text = article.kategori,
                             color = Color.White,
                             fontFamily = FontFamily(Font(R.font.helvetica_neue_medium)),
                             fontSize = 10.sp
@@ -77,7 +76,7 @@ fun ArticleDetailContent(
                     modifier = modifier
                         .fillMaxWidth()
                         .padding(top = 5.dp, bottom = 5.dp),
-                    text = article.title,
+                    text = article.judul,
                     color = Color.Black,
                     fontFamily = FontFamily(Font(R.font.helvetica_neue_bold)),
                     fontSize = 18.sp,
@@ -86,24 +85,24 @@ fun ArticleDetailContent(
                 )
                 Text(
                     modifier = modifier.fillMaxWidth(),
-                    text = article.time,
+                    text = article.tanggal,
                     color = lightGray,
                     fontFamily = FontFamily(Font(R.font.helvetica_neue_regular)),
                     fontSize = 12.sp,
                     textAlign = TextAlign.Start
                 )
-                Image(
+                AsyncImage(
                     modifier = modifier
                         .fillMaxWidth()
                         .size(200.dp)
-                        .padding(top = 10.dp, bottom = 10.dp),
-                    painter = painterResource(article.image),
+                        .padding(top = 20.dp, bottom = 20.dp),
+                    model = article.gambar,
                     contentDescription = null,
                     contentScale = ContentScale.Crop
                 )
                 Text(
                     modifier = modifier.fillMaxWidth(),
-                    text = article.description,
+                    text = article.deskripsi,
                     color = Color.Black,
                     fontFamily = FontFamily(Font(R.font.helvetica_neue_regular)),
                     fontSize = 14.sp,

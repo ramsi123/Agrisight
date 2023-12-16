@@ -25,17 +25,19 @@ import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.capstoneproject.R
 import com.example.capstoneproject.ui.theme.colorPrimary
 import com.example.capstoneproject.ui.theme.ghostWhite
+import com.example.capstoneproject.ui.theme.lightGray
 import com.example.capstoneproject.util.Constants.SIGN_IN_BUTTON
 import com.example.capstoneproject.util.Constants.SIGN_UP_BUTTON
-import com.example.capstoneproject.util.Constants.TITLE
 import com.example.capstoneproject.util.Constants.WELCOME_DESCRIPTION
 import com.example.capstoneproject.util.Constants.WELCOME_PICTURE
+import com.example.capstoneproject.util.Constants.WELCOME_TITLE
 
 @Composable
 fun WelcomeContent(
@@ -52,7 +54,7 @@ fun WelcomeContent(
             modifier = modifier
                 .fillMaxSize()
                 .background(ghostWhite)
-                .padding(horizontal = 16.dp, vertical = 32.dp)
+                .padding(start = 16.dp, end = 16.dp, bottom = 32.dp)
                 .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.Bottom,
             horizontalAlignment = Alignment.CenterHorizontally
@@ -60,20 +62,19 @@ fun WelcomeContent(
             Image(
                 modifier = Modifier
                     .wrapContentSize()
-                    .padding(bottom = 50.dp),
-                bitmap = ImageBitmap.imageResource(id = R.drawable.soil),
+                    .padding(bottom = 20.dp),
+                bitmap = ImageBitmap.imageResource(id = R.drawable.welcome_picture),
                 contentDescription = WELCOME_PICTURE
             )
             Text(
                 modifier = modifier
                     .fillMaxWidth()
                     .padding(bottom = 5.dp),
-                text = TITLE,
+                text = WELCOME_TITLE,
                 color = Color.Black,
                 style = TextStyle(
                     fontSize = 30.sp,
-                    fontFamily = FontFamily(Font(R.font.helvetica_neue_bold)),
-                    letterSpacing = 1.sp
+                    fontFamily = FontFamily(Font(R.font.josefin_sans_semibold))
                 ),
                 textAlign = TextAlign.Start
             )
@@ -82,10 +83,10 @@ fun WelcomeContent(
                     .fillMaxWidth()
                     .padding(bottom = 40.dp),
                 text = WELCOME_DESCRIPTION,
-                color = Color.Black,
+                color = lightGray,
                 style = TextStyle(
-                    fontSize = 18.sp,
-                    fontFamily = FontFamily(Font(R.font.helvetica_neue_regular))
+                    fontSize = 16.sp,
+                    fontFamily = FontFamily(Font(R.font.josefin_sans_semibold))
                 ),
                 textAlign = TextAlign.Start,
                 lineHeight = 20.sp

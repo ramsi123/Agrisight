@@ -9,6 +9,10 @@ import com.example.capstoneproject.data.model.Article
 import com.example.capstoneproject.data.model.Plant
 import com.example.capstoneproject.data.model.dummyArticle
 import com.example.capstoneproject.data.model.dummyPlant
+import com.example.capstoneproject.data.remote.response.ArticleDetailData
+import com.example.capstoneproject.data.remote.response.ArticleItem
+import com.example.capstoneproject.data.remote.response.ArticlesItem
+import com.example.capstoneproject.data.remote.retrofit.ApiService
 import com.example.capstoneproject.ui.common.UiState
 import com.example.capstoneproject.ui.screen.signin.component.SignInResult
 import com.example.capstoneproject.ui.screen.signin.component.SignInState
@@ -17,13 +21,16 @@ import com.google.android.gms.auth.api.identity.BeginSignInRequest
 import com.google.android.gms.auth.api.identity.SignInClient
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.tasks.await
 import kotlin.coroutines.cancellation.CancellationException
 
 class AgrisightRepository(
     private val context: Context,
     private val auth: FirebaseAuth,
-    private val oneTapClient: SignInClient
+    private val oneTapClient: SignInClient,
+    private val apiService: ApiService
 ) {
 
     fun getPlants(): List<Plant> {
@@ -42,14 +49,16 @@ class AgrisightRepository(
         }
     }
 
-    fun getArticles(): List<Article> {
-        return dummyArticle
+    suspend fun getArticles(): Flow<List<ArticlesItem>> {
+        val response = apiService.getArticles()
+        val data = response.articlesData.artikels
+        return flowOf(data)
     }
 
-    fun getArticle(articleId: String): List<Article> {
-        return dummyArticle.filter {
-            it.id.contains(articleId, ignoreCase = true)
-        }
+    suspend fun getDetailArticle(articleId: String): Flow<ArticleItem> {
+        val response = apiService.getDetailArticle(articleId)
+        val data = response.articleDetailData.articleItem
+        return flowOf(data)
     }
 
     fun searchArticles(query: String): List<Article> {
@@ -169,10 +178,11 @@ class AgrisightRepository(
         fun getInstance(
             context: Context,
             auth: FirebaseAuth,
-            oneTapClient: SignInClient
+            oneTapClient: SignInClient,
+            apiService: ApiService
         ): AgrisightRepository =
             instance ?: synchronized(this) {
-                instance ?: AgrisightRepository(context, auth, oneTapClient)
+                instance ?: AgrisightRepository(context, auth, oneTapClient, apiService)
             }.also { instance = it }
     }
 }

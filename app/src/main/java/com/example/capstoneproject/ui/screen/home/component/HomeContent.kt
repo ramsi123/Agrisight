@@ -29,8 +29,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.capstoneproject.R
-import com.example.capstoneproject.data.model.Article
 import com.example.capstoneproject.data.model.Plant
+import com.example.capstoneproject.data.remote.response.ArticlesItem
 import com.example.capstoneproject.ui.theme.colorPrimary
 import com.example.capstoneproject.ui.theme.ghostWhite
 import com.example.capstoneproject.ui.theme.lightGray
@@ -46,7 +46,7 @@ import com.example.capstoneproject.util.Constants.VIEW_ALL
 fun HomeContent(
     modifier: Modifier = Modifier,
     plants: List<Plant>,
-    articles: List<Article>,
+    articles: List<ArticlesItem>,
     navigateToPlantListScreen: () -> Unit,
     navigateToArticleListScreen: () -> Unit,
     navigateToArticleDetailScreen: (String) -> Unit

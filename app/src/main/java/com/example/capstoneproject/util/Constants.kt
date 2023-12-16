@@ -2,6 +2,9 @@ package com.example.capstoneproject.util
 
 object Constants {
 
+    // api
+    const val BASE_URL = "https://agrisight-dev.et.r.appspot.com/api/"
+
     // Buttons
     const val SIGN_IN_BUTTON = "Sign In"
     const val RESET_PASSWORD_BUTTON = "Reset"
@@ -35,7 +38,8 @@ object Constants {
 
     // Texts
     const val TITLE = "Agrisight"
-    const val WELCOME_DESCRIPTION = "Utilize an unused soil with the helps of Agrisight Soil Detector to get the plants recommendation"
+    const val WELCOME_TITLE = "All in one app for digital farming"
+    const val WELCOME_DESCRIPTION = "Know your soil better with the helps of Agrisight Soil Detector to get the best plants recommendation"
     const val SIGN_UP_TITLE = "Create your new account"
     const val SIGN_UP_TITLE_WORD = "Create"
     const val SIGN_UP = "Sign Up"

@@ -1,6 +1,5 @@
 package com.example.capstoneproject.components
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -20,14 +19,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImage
 import com.example.capstoneproject.R
-import com.example.capstoneproject.data.model.Article
+import com.example.capstoneproject.data.remote.response.ArticlesItem
 import com.example.capstoneproject.ui.theme.colorPrimary
 import com.example.capstoneproject.ui.theme.lightGray
 
@@ -35,7 +34,7 @@ import com.example.capstoneproject.ui.theme.lightGray
 @Composable
 fun ArticleItem(
     modifier: Modifier = Modifier,
-    article: Article,
+    article: ArticlesItem,
     onCLick: (String) -> Unit
 ) {
     Card(
@@ -64,7 +63,7 @@ fun ArticleItem(
                 ) {
                     Text(
                         modifier = modifier.padding(vertical = 4.dp, horizontal = 6.dp),
-                        text = article.category,
+                        text = article.kategori,
                         color = Color.White,
                         fontFamily = FontFamily(Font(R.font.helvetica_neue_medium)),
                         fontSize = 8.sp
@@ -72,27 +71,35 @@ fun ArticleItem(
                 }
                 Text(
                     modifier = modifier.padding(top = 5.dp, bottom = 3.dp),
-                    text = article.title,
+                    text = article.judul,
                     color = Color.Black,
                     fontFamily = FontFamily(Font(R.font.helvetica_neue_bold)),
                     fontSize = 14.sp,
                     lineHeight = 16.sp
                 )
                 Text(
-                    text = article.time,
+                    text = article.tanggal,
                     color = lightGray,
                     fontFamily = FontFamily(Font(R.font.helvetica_neue_regular)),
                     fontSize = 12.sp
                 )
             }
-            Image(
+            AsyncImage(
                 modifier = modifier
                     .size(40.dp)
                     .clip(CircleShape),
-                painter = painterResource(article.image),
+                model = article.gambar,
                 contentDescription = null,
                 contentScale = ContentScale.Crop
             )
+            /*Image(
+                modifier = modifier
+                    .size(40.dp)
+                    .clip(CircleShape),
+                painter = painterResource(article.gambar),
+                contentDescription = null,
+                contentScale = ContentScale.Crop
+            )*/
         }
     }
 }
@@ -101,14 +108,22 @@ fun ArticleItem(
 @Composable
 fun ArticleItemPreview() {
     ArticleItem(
-        article = Article(
+        article = ArticlesItem(
+            kategori = "Teknologi",
+            id = "1",
+            tanggal = "2021-05-15 07:01:20",
+            deskripsi = "Mewujudkan Digital Farming Bersama Soil Detector Team",
+            judul = "Mewujudkan Digital Farming Bersama Soil Detector Team",
+            gambar = "R.drawable.digital_farming"
+        ),
+        /*article = Article(
             id = "1",
             image = R.drawable.digital_farming,
             title = "Mewujudkan Digital Farming Bersama Soil Detector Team",
             time = "2021-05-15 07:01:20",
             category = "Teknologi",
             description = ""
-        ),
+        ),*/
         onCLick = {}
     )
 }
