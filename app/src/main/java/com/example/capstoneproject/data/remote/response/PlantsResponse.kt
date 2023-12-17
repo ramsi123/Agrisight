@@ -2,38 +2,38 @@ package com.example.capstoneproject.data.remote.response
 
 import com.google.gson.annotations.SerializedName
 
-data class PlantResponse(
+data class PlantsResponse(
 
 	@field:SerializedName("data")
-	val articleData: PlantData? = null,
+	val articleData: PlantsData,
 
 	@field:SerializedName("success")
-	val success: Boolean? = null,
+	val success: Boolean,
 
 	@field:SerializedName("message")
-	val message: String? = null
+	val message: String
 )
 
-data class PlantData(
+data class PlantsData(
 
 	@field:SerializedName("tanamans")
-	val tanamans: List<TanamansItem?>? = null
+	val tanamans: List<PlantsItem>
 )
 
-data class TanamansItem(
+data class PlantsItem(
 
 	@field:SerializedName("nama")
-	val nama: String? = null,
+	val nama: String,
 
 	@field:SerializedName("nama_latin")
-	val namaLatin: String? = null,
+	val namaLatin: String,
 
 	@field:SerializedName("id")
-	val id: String? = null,
+	val id: String,
 
 	@field:SerializedName("deskripsi")
-	val deskripsi: String? = null,
+	val deskripsi: String,
 
 	@field:SerializedName("gambar")
-	val gambar: String? = null
+	val gambar: String
 )

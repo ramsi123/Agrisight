@@ -32,7 +32,7 @@ class TfLiteLandmarkClassifier(
         try {
             classifier = ImageClassifier.createFromFileAndOptions(
                 context,
-                "model_v4.tflite",
+                "metadata.tflite",
                 options
             )
         } catch (e: IllegalStateException) {
@@ -57,7 +57,7 @@ class TfLiteLandmarkClassifier(
         return results?.flatMap { classifications ->
             classifications.categories.map { category ->
                 Classification(
-                    name = category.displayName,
+                    name = category.label,
                     score = category.score
                 )
             }

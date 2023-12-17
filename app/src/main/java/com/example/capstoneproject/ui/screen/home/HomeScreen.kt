@@ -3,14 +3,13 @@ package com.example.capstoneproject.ui.screen.home
 import android.annotation.SuppressLint
 import android.widget.Toast
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.example.capstoneproject.data.remote.response.ArticlesItem
+import com.example.capstoneproject.data.remote.response.PlantsItem
 import com.example.capstoneproject.di.Injection
 import com.example.capstoneproject.navigation.Screen
 import com.example.capstoneproject.ui.ViewModelFactory
@@ -27,10 +26,10 @@ fun HomeScreen(
     navController: NavHostController
 ) {
     val context = LocalContext.current
-    val plants by viewModel.plants.collectAsState()
+    var plants: List<PlantsItem> = emptyList()
     var articles: List<ArticlesItem> = emptyList()
 
-    // collect articles data
+    // get articles
     viewModel.articles.collectAsState(initial = UiState.Loading).value.let { uiState ->
         when (uiState) {
             is UiState.Loading -> {
@@ -47,13 +46,19 @@ fun HomeScreen(
     }
 
     // get plants
-    LaunchedEffect(key1 = true) {
-        viewModel.getPlants()
-    }
-
-    // get articles
-    LaunchedEffect(key1 = true) {
-        viewModel.getArticles()
+    viewModel.plants.collectAsState(initial = UiState.Loading).value.let { uiState ->
+        when (uiState) {
+            is UiState.Loading -> {
+                viewModel.getPlants()
+            }
+            is UiState.Success -> {
+                plants = uiState.data
+            }
+            is UiState.Error -> {
+                Toast.makeText(context, uiState.errorMessage, Toast.LENGTH_SHORT).show()
+            }
+            else -> {}
+        }
     }
 
     HomeContent(
@@ -62,6 +67,9 @@ fun HomeScreen(
         articles = articles,
         navigateToPlantListScreen = {
             navController.navigate(Screen.PlantList.route)
+        },
+        navigateToPlantDetailScreen = { plantId ->
+            navController.navigate(Screen.PlantDetail.plantDetailRoute(plantId))
         },
         navigateToArticleListScreen = {
             navController.navigate(Screen.ArticleList.route)

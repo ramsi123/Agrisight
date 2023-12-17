@@ -3,14 +3,11 @@ package com.example.capstoneproject.ui.screen.article_detail
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.capstoneproject.data.AgrisightRepository
-import com.example.capstoneproject.data.model.Article
 import com.example.capstoneproject.data.remote.response.ArticleItem
 import com.example.capstoneproject.ui.common.UiState
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class ArticleDetailViewModel(private val repository: AgrisightRepository) : ViewModel() {

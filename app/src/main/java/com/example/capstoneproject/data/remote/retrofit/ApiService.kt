@@ -2,20 +2,21 @@ package com.example.capstoneproject.data.remote.retrofit
 
 import com.example.capstoneproject.data.remote.response.ArticleDetailResponse
 import com.example.capstoneproject.data.remote.response.ArticlesResponse
-import com.example.capstoneproject.data.remote.response.PlantResponse
-import com.example.capstoneproject.data.remote.response.TanamansItem
+import com.example.capstoneproject.data.remote.response.PlantDetailResponse
+import com.example.capstoneproject.data.remote.response.PlantsResponse
+import com.example.capstoneproject.data.remote.response.PlantsItem
 import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface ApiService {
 
     @GET("tanaman")
-    suspend fun getPlants(): PlantResponse
+    suspend fun getPlants(): PlantsResponse
 
     @GET("tanaman/{id}")
     suspend fun getDetailPlant(
         @Path("id") id: String
-    ): TanamansItem
+    ): PlantDetailResponse
 
     @GET("artikel")
     suspend fun getArticles(): ArticlesResponse

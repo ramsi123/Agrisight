@@ -9,9 +9,10 @@ import com.example.capstoneproject.data.model.Article
 import com.example.capstoneproject.data.model.Plant
 import com.example.capstoneproject.data.model.dummyArticle
 import com.example.capstoneproject.data.model.dummyPlant
-import com.example.capstoneproject.data.remote.response.ArticleDetailData
 import com.example.capstoneproject.data.remote.response.ArticleItem
 import com.example.capstoneproject.data.remote.response.ArticlesItem
+import com.example.capstoneproject.data.remote.response.PlantItemData
+import com.example.capstoneproject.data.remote.response.PlantsItem
 import com.example.capstoneproject.data.remote.retrofit.ApiService
 import com.example.capstoneproject.ui.common.UiState
 import com.example.capstoneproject.ui.screen.signin.component.SignInResult
@@ -33,8 +34,16 @@ class AgrisightRepository(
     private val apiService: ApiService
 ) {
 
-    fun getPlants(): List<Plant> {
-        return dummyPlant
+    suspend fun getPlants(): Flow<List<PlantsItem>> {
+        val response = apiService.getPlants()
+        val data = response.articleData.tanamans
+        return flowOf(data)
+    }
+
+    suspend fun getDetailPlant(plantId: String): Flow<PlantItemData> {
+        val response = apiService.getDetailPlant(plantId)
+        val data = response.plantDetailData.plantItemData
+        return flowOf(data)
     }
 
     fun searchPlants(query: String): List<Plant> {

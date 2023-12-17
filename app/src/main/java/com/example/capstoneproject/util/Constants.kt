@@ -25,6 +25,7 @@ object Constants {
     const val CAMERA_SCREEN = "Camera"
     const val RESULT_SCREEN = "Result"
     const val PLANT_LIST_SCREEN = "Plant List"
+    const val PLANT_DETAIL_SCREEN = "Plant Detail"
     const val ARTICLE_LIST_SCREEN = "Article List"
     const val ARTICLE_DETAIL_SCREEN = "Article Detail"
 
@@ -57,6 +58,7 @@ object Constants {
     const val VIEW_ALL = "Lihat Semua"
     const val CAMERA_TITLE = "Agrisight Analysis"
     const val PLANT_LIST_TITLE = "Tanaman"
+    const val PLANT_DETAIL_TITLE = "Detail Tanaman"
     const val SEARCH_BAR_PLANT_LIST = "Cari Tanaman"
     const val ARTICLE_LIST_TITLE = "Artikel"
     const val ARTICLE_DETAIL_TITLE = "Detail Artikel"

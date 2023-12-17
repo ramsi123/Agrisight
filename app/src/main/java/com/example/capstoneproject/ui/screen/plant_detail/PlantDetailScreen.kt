@@ -1,4 +1,4 @@
-package com.example.capstoneproject.ui.screen.article_detail
+package com.example.capstoneproject.ui.screen.plant_detail
 
 import android.widget.Toast
 import androidx.compose.runtime.Composable
@@ -7,31 +7,32 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.capstoneproject.data.remote.response.ArticleItem
+import com.example.capstoneproject.data.remote.response.PlantItemData
 import com.example.capstoneproject.di.Injection
 import com.example.capstoneproject.ui.ViewModelFactory
 import com.example.capstoneproject.ui.common.UiState
-import com.example.capstoneproject.ui.screen.article_detail.component.ArticleDetailContent
+import com.example.capstoneproject.ui.screen.plant_detail.component.PlantDetailContent
 
 @Composable
-fun ArticleDetailScreen(
+fun PlantDetailScreen(
     modifier: Modifier = Modifier,
-    navController: NavHostController,
-    viewModel: ArticleDetailViewModel = viewModel(
+    viewModel: PlantDetailViewModel = viewModel(
         factory = ViewModelFactory(Injection.provideAgrisightRepository(LocalContext.current))
     ),
-    articleId: String
+    navController: NavHostController,
+    plantId: String
 ) {
     val context = LocalContext.current
-    var article = ArticleItem(kategori = "", id = "", deskripsi = "", tanggal = "", judul = "", gambar = "")
-    
-    viewModel.article.collectAsState(initial = UiState.Loading).value.let { uiState ->
+    var plant = PlantItemData(nama = "", namaLatin = "", id = "", deskripsi = "", gambar = "")
+
+    // get detail plant data
+    viewModel.plant.collectAsState(initial = UiState.Loading).value.let { uiState ->
         when (uiState) {
             is UiState.Loading -> {
-                viewModel.getDetailArticle(articleId)
+                viewModel.getDetailPlant(plantId)
             }
             is UiState.Success -> {
-                article = uiState.data
+                plant = uiState.data
             }
             is UiState.Error -> {
                 Toast.makeText(context, uiState.errorMessage, Toast.LENGTH_SHORT).show()
@@ -40,9 +41,9 @@ fun ArticleDetailScreen(
         }
     }
 
-    ArticleDetailContent(
+    PlantDetailContent(
         modifier = modifier,
-        article = article,
+        plant = plant,
         navigateBack = {
             navController.navigateUp()
         }

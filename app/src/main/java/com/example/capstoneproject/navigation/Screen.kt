@@ -6,6 +6,7 @@ import com.example.capstoneproject.util.Constants.CAMERA_SCREEN
 import com.example.capstoneproject.util.Constants.DASHBOARD_SCREEN
 import com.example.capstoneproject.util.Constants.FORGOT_PASSWORD_SCREEN
 import com.example.capstoneproject.util.Constants.HOME_SCREEN
+import com.example.capstoneproject.util.Constants.PLANT_DETAIL_SCREEN
 import com.example.capstoneproject.util.Constants.PLANT_LIST_SCREEN
 import com.example.capstoneproject.util.Constants.PROFILE_SCREEN
 import com.example.capstoneproject.util.Constants.RESULT_SCREEN
@@ -33,6 +34,9 @@ sealed class Screen(val route: String) {
         fun resultRoute(title: String, score: Float) = "$RESULT_SCREEN/$title/$score"
     }
     object PlantList : Screen(PLANT_LIST_SCREEN)
+    object PlantDetail : Screen("$PLANT_DETAIL_SCREEN/{id}") {
+        fun plantDetailRoute(id: String) = "$PLANT_DETAIL_SCREEN/$id"
+    }
     object ArticleList : Screen(ARTICLE_LIST_SCREEN)
     object ArticleDetail : Screen("$ARTICLE_DETAIL_SCREEN/{id}") {
         fun articleDetailRoute(id: String) = "$ARTICLE_DETAIL_SCREEN/$id"

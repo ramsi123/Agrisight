@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.example.capstoneproject.components.SearchBar
 import com.example.capstoneproject.components.TopBar
-import com.example.capstoneproject.data.model.Plant
+import com.example.capstoneproject.data.remote.response.PlantsItem
 import com.example.capstoneproject.util.Constants.SEARCH_BAR_PLANT_LIST
 
 @Composable
@@ -17,9 +17,10 @@ fun PlantListContent(
     listState: LazyListState,
     query: String,
     onQueryChange: (String) -> Unit,
-    plants: List<Plant>,
+    plants: List<PlantsItem>,
     screenTitle: String,
-    navigateBack: () -> Unit
+    navigateBack: () -> Unit,
+    navigateToPlantDetailScreen: (String) -> Unit
 ) {
     Scaffold(
         topBar = {
@@ -34,7 +35,10 @@ fun PlantListContent(
                 SearchBar(query = query, onQueryChange = onQueryChange, placeholder = SEARCH_BAR_PLANT_LIST)
             }
             items(items = plants) { plant ->
-                PlantListItem(image = plant.image, name = plant.name, latinName = plant.latinName)
+                PlantListItem(
+                    plant = plant,
+                    onClick = navigateToPlantDetailScreen
+                )
             }
         }
     }

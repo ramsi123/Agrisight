@@ -60,7 +60,7 @@ fun CameraScreen(
             )
         }
     }
-    var plantTitle by remember { mutableStateOf("Unscanned") }
+    var plantTitle by remember { mutableStateOf("Unscanned ") }
     var analysisScore by remember { mutableFloatStateOf(1f) }
     var torch by remember { mutableStateOf(false) }
 

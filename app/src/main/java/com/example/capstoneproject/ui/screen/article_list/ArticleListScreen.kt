@@ -29,7 +29,7 @@ fun ArticleListScreen(
     val context = LocalContext.current
     var articles: List<ArticlesItem> = emptyList()
 
-    // collect articles data
+    // get articles
     viewModel.articles.collectAsState(initial = UiState.Loading).value.let { uiState ->
         when (uiState) {
             is UiState.Loading -> {

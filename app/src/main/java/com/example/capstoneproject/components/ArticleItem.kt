@@ -92,14 +92,6 @@ fun ArticleItem(
                 contentDescription = null,
                 contentScale = ContentScale.Crop
             )
-            /*Image(
-                modifier = modifier
-                    .size(40.dp)
-                    .clip(CircleShape),
-                painter = painterResource(article.gambar),
-                contentDescription = null,
-                contentScale = ContentScale.Crop
-            )*/
         }
     }
 }
@@ -116,14 +108,6 @@ fun ArticleItemPreview() {
             judul = "Mewujudkan Digital Farming Bersama Soil Detector Team",
             gambar = "R.drawable.digital_farming"
         ),
-        /*article = Article(
-            id = "1",
-            image = R.drawable.digital_farming,
-            title = "Mewujudkan Digital Farming Bersama Soil Detector Team",
-            time = "2021-05-15 07:01:20",
-            category = "Teknologi",
-            description = ""
-        ),*/
         onCLick = {}
     )
 }

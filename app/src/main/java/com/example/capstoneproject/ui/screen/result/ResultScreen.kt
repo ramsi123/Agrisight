@@ -1,15 +1,17 @@
 package com.example.capstoneproject.ui.screen.result
 
+import android.widget.Toast
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.capstoneproject.data.remote.response.PlantsItem
 import com.example.capstoneproject.di.Injection
+import com.example.capstoneproject.navigation.Screen
 import com.example.capstoneproject.ui.ViewModelFactory
+import com.example.capstoneproject.ui.common.UiState
 import com.example.capstoneproject.ui.screen.result.component.ResultContent
 
 @Composable
@@ -22,12 +24,24 @@ fun ResultScreen(
     title: String,
     score: Float
 ) {
+    val context = LocalContext.current
     val formattedScore = String.format("%.2f", score * 100).toDouble()
-    val plants by viewModel.plants.collectAsState()
+    var plants: List<PlantsItem> = emptyList()
 
-    // get plants recommendation
-    LaunchedEffect(key1 = true) {
-        viewModel.getPlants()
+    // get plants
+    viewModel.plants.collectAsState(initial = UiState.Loading).value.let { uiState ->
+        when (uiState) {
+            is UiState.Loading -> {
+                viewModel.getPlants()
+            }
+            is UiState.Success -> {
+                plants = uiState.data
+            }
+            is UiState.Error -> {
+                Toast.makeText(context, uiState.errorMessage, Toast.LENGTH_SHORT).show()
+            }
+            else -> {}
+        }
     }
 
     ResultContent(
@@ -36,6 +50,9 @@ fun ResultScreen(
         plants = plants,
         navigateBack = {
             navController.navigateUp()
+        },
+        navigateToPlantDetailScreen = { plantId ->
+            navController.navigate(Screen.PlantDetail.plantDetailRoute(plantId))
         }
     )
 }

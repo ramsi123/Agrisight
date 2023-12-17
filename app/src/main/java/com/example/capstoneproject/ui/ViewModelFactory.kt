@@ -7,6 +7,7 @@ import com.example.capstoneproject.ui.screen.article_detail.ArticleDetailViewMod
 import com.example.capstoneproject.ui.screen.article_list.ArticleListViewModel
 import com.example.capstoneproject.ui.screen.forgot_password.ForgotPasswordViewModel
 import com.example.capstoneproject.ui.screen.home.HomeViewModel
+import com.example.capstoneproject.ui.screen.plant_detail.PlantDetailViewModel
 import com.example.capstoneproject.ui.screen.plant_list.PlantListViewModel
 import com.example.capstoneproject.ui.screen.profile.ProfileViewModel
 import com.example.capstoneproject.ui.screen.result.ResultViewModel
@@ -38,6 +39,8 @@ class ViewModelFactory(private val repository: AgrisightRepository) : ViewModelP
             return ResultViewModel(repository) as T
         } else if (modelClass.isAssignableFrom(ForgotPasswordViewModel::class.java)) {
             return ForgotPasswordViewModel(repository) as T
+        } else if (modelClass.isAssignableFrom(PlantDetailViewModel::class.java)) {
+            return PlantDetailViewModel(repository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
     }

@@ -83,13 +83,5 @@ fun ArticleListItem(
             contentDescription = null,
             contentScale = ContentScale.Crop
         )
-        /*Image(
-            modifier = modifier
-                .size(40.dp)
-                .clip(CircleShape),
-            painter = painterResource(article.image),
-            contentDescription = null,
-            contentScale = ContentScale.Crop
-        )*/
     }
 }

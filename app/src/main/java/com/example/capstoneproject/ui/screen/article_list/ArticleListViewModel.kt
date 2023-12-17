@@ -20,11 +20,6 @@ class ArticleListViewModel(private val repository: AgrisightRepository) : ViewMo
     private val _query = mutableStateOf("")
     val query: State<String> = _query
 
-    /*fun searchArticles(newQuery: String) {
-        _query.value = newQuery
-        _articles.value = repository.searchArticles(_query.value)
-    }*/
-
     fun getArticles() {
         viewModelScope.launch {
             repository.getArticles()

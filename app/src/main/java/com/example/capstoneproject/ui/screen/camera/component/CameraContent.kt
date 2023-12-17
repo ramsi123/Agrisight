@@ -133,7 +133,7 @@ fun CameraContent(
                 contentAlignment = Alignment.Center
             ) {
                 Text(
-                    text = "$title with $score accuracy",
+                    text = "${title}with $score accuracy",
                     style = TextStyle(
                         fontSize = 12.sp,
                         color = Color.White,

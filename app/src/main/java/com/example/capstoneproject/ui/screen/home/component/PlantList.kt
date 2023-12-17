@@ -10,24 +10,24 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.capstoneproject.components.PlantItem
-import com.example.capstoneproject.data.model.Plant
+import com.example.capstoneproject.data.remote.response.PlantsItem
 
 @Composable
 fun PlantList(
     modifier: Modifier = Modifier,
-    plants: List<Plant>
+    plants: List<PlantsItem>,
+    onClick: (String) -> Unit
 ) {
     LazyVerticalGrid(
-        modifier = modifier.heightIn(max = 125.dp),
+        modifier = modifier.heightIn(max = 150.dp),
         columns = GridCells.Fixed(2),
         contentPadding = PaddingValues(bottom = 4.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         items(plants) { plant ->
             PlantItem(
-                image = plant.image,
-                name = plant.name,
-                latinName = plant.latinName
+                plant = plant,
+                onClick = onClick
             )
         }
     }

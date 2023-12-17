@@ -29,8 +29,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.capstoneproject.R
 import com.example.capstoneproject.components.TopBar
-import com.example.capstoneproject.data.model.Plant
 import com.example.capstoneproject.components.PlantItem
+import com.example.capstoneproject.data.remote.response.PlantsItem
 import com.example.capstoneproject.ui.theme.lightGray
 import com.example.capstoneproject.util.Constants
 import com.example.capstoneproject.util.Constants.PLANT_RECOMMENDATION
@@ -42,8 +42,9 @@ fun ResultContent(
     modifier: Modifier = Modifier,
     title: String,
     score: Double,
-    plants: List<Plant>,
-    navigateBack: () -> Unit
+    plants: List<PlantsItem>,
+    navigateBack: () -> Unit,
+    navigateToPlantDetailScreen: (String) -> Unit
 ) {
     Scaffold(
         topBar = {
@@ -131,7 +132,10 @@ fun ResultContent(
                     )
                 }
                 items(plants) { plant ->
-                    PlantItem(image = plant.image, name = plant.name, latinName = plant.latinName)
+                    PlantItem(
+                        plant = plant,
+                        onClick = navigateToPlantDetailScreen
+                    )
                 }
             }
         }

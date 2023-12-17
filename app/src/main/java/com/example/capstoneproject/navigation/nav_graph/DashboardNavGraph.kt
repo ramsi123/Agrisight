@@ -13,6 +13,7 @@ import com.example.capstoneproject.ui.screen.article_detail.ArticleDetailScreen
 import com.example.capstoneproject.ui.screen.article_list.ArticleListScreen
 import com.example.capstoneproject.ui.screen.camera.CameraScreen
 import com.example.capstoneproject.ui.screen.home.HomeScreen
+import com.example.capstoneproject.ui.screen.plant_detail.PlantDetailScreen
 import com.example.capstoneproject.ui.screen.plant_list.PlantListScreen
 import com.example.capstoneproject.ui.screen.profile.ProfileScreen
 import com.example.capstoneproject.ui.screen.result.ResultScreen
@@ -59,6 +60,15 @@ fun NavGraphBuilder.dashboardNavGraph(
         }
         composable(Screen.PlantList.route) {
             PlantListScreen(navController = navController)
+        }
+        composable(
+            route = Screen.PlantDetail.route,
+            arguments = listOf(
+                navArgument("id") { type = NavType.StringType }
+            )
+        ) {
+            val id = it.arguments?.getString("id") ?: "1"
+            PlantDetailScreen(navController = navController, plantId = id)
         }
         composable(Screen.ArticleList.route) {
             ArticleListScreen(navController = navController)

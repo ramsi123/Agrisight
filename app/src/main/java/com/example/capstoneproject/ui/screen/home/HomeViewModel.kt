@@ -3,8 +3,8 @@ package com.example.capstoneproject.ui.screen.home
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.capstoneproject.data.AgrisightRepository
-import com.example.capstoneproject.data.model.Plant
 import com.example.capstoneproject.data.remote.response.ArticlesItem
+import com.example.capstoneproject.data.remote.response.PlantsItem
 import com.example.capstoneproject.ui.common.UiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -13,16 +13,23 @@ import kotlinx.coroutines.launch
 
 class HomeViewModel(private val repository: AgrisightRepository) : ViewModel() {
 
-    private val _plants: MutableStateFlow<List<Plant>> = MutableStateFlow(emptyList())
+    private val _plants: MutableStateFlow<UiState<List<PlantsItem>>> = MutableStateFlow(UiState.Loading)
     val plants = _plants.asStateFlow()
 
     private val _articles: MutableStateFlow<UiState<List<ArticlesItem>>> = MutableStateFlow(UiState.Loading)
     val articles = _articles.asStateFlow()
 
     fun getPlants() {
-        val data = repository.getPlants()
-        val displayPlants = data.subList(0, 4)
-        _plants.value = displayPlants
+        viewModelScope.launch {
+            repository.getPlants()
+                .catch {
+                    _plants.value = UiState.Error(it.message.toString())
+                }
+                .collect { plants ->
+                    val displayPlants = plants.subList(0, 4)
+                    _plants.value = UiState.Success(displayPlants)
+                }
+        }
     }
 
     fun getArticles() {
