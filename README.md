@@ -24,12 +24,10 @@ Agrisight App built using MVVM Architecture and Jetpack Compose
  
 ## Features
 
-https://i.imgur.com/OapahJp.mp4
+https://github.com/ramsi123/Agrisight/assets/67065679/4a5be310-7b3e-4255-8a0b-a26f0d9b43ee
 
-https://github.com/ramsi123/Agrisight/assets/67065679/b5a6f6ea-702e-42a1-b84c-c73ac9c0dc76
-
-  - Authentication with Google to Firebase Authentication
-  - Uploading stories
-  - Open the map to find out the location of each uploader
-  - Detecting fish
-  - Know the details of the uploaded fish
+  - Authentication with google and email to Firebase Authentication
+  - List of plants
+  - List of articles
+  - List of tools
+  - Soil scanner with camerax and tensorflow lite
