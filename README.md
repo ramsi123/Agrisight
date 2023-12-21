@@ -179,5 +179,5 @@ Start the server
 
 ## Authors
 
-- [@aditypraa](https://github.com/Aditypraa)
-- [@salmanabilaaa](https://github.com/salmanabilaaa)
+- [Aditya Pratama](https://github.com/Aditypraa)
+- [Salma Nabila](https://github.com/salmanabilaaa)
