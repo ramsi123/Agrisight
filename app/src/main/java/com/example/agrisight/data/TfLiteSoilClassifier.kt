@@ -4,18 +4,18 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.view.Surface
 import com.example.agrisight.data.domain.Classification
-import com.example.agrisight.data.domain.LandmarkClassifier
+import com.example.agrisight.data.domain.SoilClassifier
 import org.tensorflow.lite.support.image.ImageProcessor
 import org.tensorflow.lite.support.image.TensorImage
 import org.tensorflow.lite.task.core.BaseOptions
 import org.tensorflow.lite.task.core.vision.ImageProcessingOptions
 import org.tensorflow.lite.task.vision.classifier.ImageClassifier
 
-class TfLiteLandmarkClassifier(
+class TfLiteSoilClassifier(
     private val context: Context,
     private val threshold: Float = 0.5f,
     private val maxResult: Int = 1
-) : LandmarkClassifier {
+) : SoilClassifier {
 
     private var classifier: ImageClassifier? = null
 

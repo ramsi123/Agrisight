@@ -5,10 +5,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentSender
 import com.example.agrisight.R
-import com.example.agrisight.data.model.Article
-import com.example.agrisight.data.model.Plant
-import com.example.agrisight.data.model.dummyArticle
-import com.example.agrisight.data.model.dummyPlant
 import com.example.agrisight.data.remote.response.ArticleItem
 import com.example.agrisight.data.remote.response.ArticlesItem
 import com.example.agrisight.data.remote.response.PlantItemData
@@ -46,7 +42,7 @@ class AgrisightRepository(
         return flowOf(data)
     }
 
-    fun searchPlants(query: String): List<Plant> {
+    /*fun searchPlants(query: String): List<Plant> {
         return dummyPlant.filter {
             val name = it.name.contains(query, ignoreCase = true)
 
@@ -56,7 +52,7 @@ class AgrisightRepository(
                 it.latinName.contains(query, ignoreCase = true)
             }
         }
-    }
+    }*/
 
     suspend fun getArticles(): Flow<List<ArticlesItem>> {
         val response = apiService.getArticles()
@@ -70,11 +66,11 @@ class AgrisightRepository(
         return flowOf(data)
     }
 
-    fun searchArticles(query: String): List<Article> {
+    /*fun searchArticles(query: String): List<Article> {
         return dummyArticle.filter {
             it.title.contains(query, ignoreCase = true)
         }
-    }
+    }*/
 
     suspend fun signInGoogle(): IntentSender? {
         val result = try {

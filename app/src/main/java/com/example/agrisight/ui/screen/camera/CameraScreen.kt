@@ -17,11 +17,11 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.navigation.NavHostController
-import com.example.agrisight.data.TfLiteLandmarkClassifier
+import com.example.agrisight.data.TfLiteSoilClassifier
 import com.example.agrisight.data.domain.Classification
 import com.example.agrisight.navigation.Screen
 import com.example.agrisight.ui.screen.camera.component.CameraContent
-import com.example.agrisight.ui.screen.camera.component.LandmarkImageAnalyzer
+import com.example.agrisight.ui.screen.camera.component.SoilImageAnalyzer
 
 @Composable
 fun CameraScreen(
@@ -41,8 +41,8 @@ fun CameraScreen(
         mutableStateOf(emptyList<Classification>())
     }
     val analyzer = remember {
-        LandmarkImageAnalyzer(
-            classifier = TfLiteLandmarkClassifier(
+        SoilImageAnalyzer(
+            classifier = TfLiteSoilClassifier(
                 context = context
             ),
             onResults = {

@@ -3,11 +3,11 @@ package com.example.agrisight.ui.screen.camera.component
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageProxy
 import com.example.agrisight.data.domain.Classification
-import com.example.agrisight.data.domain.LandmarkClassifier
+import com.example.agrisight.data.domain.SoilClassifier
 import com.example.agrisight.util.centerCrop
 
-class LandmarkImageAnalyzer(
-    private val classifier: LandmarkClassifier,
+class SoilImageAnalyzer(
+    private val classifier: SoilClassifier,
     private val onResults: (List<Classification>) -> Unit
 ) : ImageAnalysis.Analyzer {
 
