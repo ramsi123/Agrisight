@@ -1,0 +1,8 @@
+Aluvial
+Andosol
+Entisol
+Humus
+Inceptisol
+Laterit
+Kapur
+Pasir
