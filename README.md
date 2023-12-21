@@ -20,11 +20,11 @@ Agrisight App built using MVVM Architecture and Jetpack Compose
 
 - **Installation:**
   - Download the .apk file
-  - Install the app and happy using
+  - Install the app
  
 ## Features
 
-https://github.com/azvadennys/iFiCam-C23-PS113-Bangkit/assets/71117133/67dae9f7-de54-416e-bdf8-f8b658ee5f09
+https://i.imgur.com/OapahJp.mp4
 
   - Authentication with Google to Firebase Authentication
   - Uploading stories
