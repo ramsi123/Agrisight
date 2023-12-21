@@ -25,6 +25,9 @@ Agrisight App built using MVVM Architecture and Jetpack Compose
 ## Features
 
 https://i.imgur.com/OapahJp.mp4
+https://github.com/ramsi123/Agrisight/assets/67065679/b5a6f6ea-702e-42a1-b84c-c73ac9c0dc76
+
+
 
   - Authentication with Google to Firebase Authentication
   - Uploading stories
