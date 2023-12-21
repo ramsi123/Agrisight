@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+  <%- include('../../includes/head') %>
+
+  <body>
+    <%- include('../../components/navbar') %>
+    <div class="container">
+                <h1>Tanaman</h1>
+
+                <a href="/tanaman/add" class="btn btn-primary">Add New Tanaman</a>
+
+                <% if (tanamans.length> 0) { %>
+                    <table class="table table-striped table-responsive">
+                        <thead>
+                            <tr>
+                                <th>Nama</th>
+                                <th>Nama Latin</th>
+                                <th>Gambar</th>
+                                <th>Deskripsi</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% tanamans.forEach((tanaman)=> { %>
+                                <tr>
+                                    <td>
+                                        <%= tanaman.nama %>
+                                    </td>
+                                    <td>
+                                        <%= tanaman.nama_latin %>
+                                    </td>
+                                    <td>
+                                        <img src="<%= tanaman.gambar %>" alt="<%= tanaman.nama %>" width="100">
+                                    </td>
+                                    <td><%= tanaman.deskripsi %>
+                                    </td>
+                                    <td>
+                                        <a href="/tanaman/edit/<%= tanaman.id %>" class="btn btn-warning">Edit</a>
+                                        <form action="/tanaman/delete/<%= tanaman.id %>" method="POST"
+                                            style="display: inline;">
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                <% }); %>
+                        </tbody>
+
+
+                    </table>
+                    <% } else { %>
+                        <p>No products available.</p>
+                        <% } %>
+            </div>
+
+<%- include('../../includes/script') %>
+  </body>
+</html>

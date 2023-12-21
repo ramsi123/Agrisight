@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include ("../../includes/head") %>
+
+    <body>
+        <%- include ("../../components/navbar.ejs") %>
+            <div class="container">
+                <h1>Edit Tanaman</h1>
+
+                <!-- Edit Tanaman Form -->
+                <form action="/tanaman/update/<%= tanaman.id %>" method="POST">
+                    <div class="form-group">
+                        <label for="nama">Nama:</label>
+                        <input type="text" id="nama" name="nama" class="form-control" value="<%= tanaman.nama %>"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nama_latin">Nama Latin:</label>
+                        <input type="text" id="nama_latin" name="nama_latin" class="form-control"
+                        value="<%= tanaman.nama_latin %>" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gambar">Gambar:</label>
+                        <input type="text" id="gambar" name="gambar" class="form-control" value="<%= tanaman.gambar %>"
+                        required>
+                    </div>
+                    <div class="form-group">
+                        <label for="deskripsi">Deskripsi:</label>
+                        <textarea id="deskripsi" name="deskripsi" class="form-control"
+                            required><%= tanaman.deskripsi %></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </form>
+            </div>
+
+            <%- include ("../../includes/script") %>
+    </body>
+
+</html>

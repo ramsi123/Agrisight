@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include ("../../includes/head") %>
+
+    <body>
+        <%- include ("../../components/navbar.ejs") %>
+            <div class="container">
+                <h1>Edit Artikel</h1>
+
+                <!-- Edit artikel Form -->
+                <form action="/artikel/update/<%= artikel.id %>" method="POST">
+                    <div class="form-group">
+                        <label for="judul">Judul:</label>
+                        <input type="text" id="judul" name="judul" class="form-control" value="<%= artikel.judul %>"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="deskripsi">Deskripsi:</label>
+                        <input type="text" id="deskripsi" name="deskripsi" class="form-control"
+                        value="<%= artikel.deskripsi %>" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tanggal">Tanggal:</label>
+                        <input type="date" id="tanggal" name="tanggal" class="form-control" value="<%= artikel.tanggal %>"
+                        required>
+                    </div>
+                    <div class="form-group">
+                        <label for="kategori">Kategori:</label>
+                        <textarea id="kategori" name="kategori" class="form-control"
+                            required><%= artikel.kategori %></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="gambar">Gambar :</label>
+                        <textarea id="gambar" name="gambar" class="form-control"
+                            required><%= artikel.gambar %></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </form>
+            </div>
+
+            <%- include ("../../includes/script") %>
+    </body>
+
+</html>

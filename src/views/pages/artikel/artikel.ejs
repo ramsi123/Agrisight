@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+
+  <%- include('../../includes/head') %>
+
+  <body>
+    <%- include('../../components/navbar') %>
+    <div class="container">
+                <h1>Artikel</h1>
+
+                <a href="/artikel/add" class="btn btn-primary">Add New Artikel</a>
+
+                <% if (artikels.length> 0) { %>
+                    <table class="table table-striped table-responsive">
+                        <thead>
+                            <tr>
+                                <th>Judul</th>
+                                <th>Deskripsi</th>
+                                <th>Tanggal</th>
+                                <th>Kategori</th>
+                                <th>Gambar</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% artikels.forEach((artikel)=> { %>
+                                <tr>
+                                    <td>
+                                        <%= artikel.judul %>
+                                    </td>
+                                    <td>
+                                        <%= artikel.deskripsi %>
+                                    </td>
+                                    <td>
+                                        <%= artikel.tanggal %>
+                                    </td>
+                                     <td>
+                                         <%= artikel.kategori %>
+                                     </td>
+                                    <td>
+                                        <img src="<%= artikel.gambar %>" alt="<%= artikel.judul %>" width="100">
+                                   </td>
+                                    <td>
+                                        <a href="/artikel/edit/<%= artikel.id %>" class="btn btn-warning">Edit</a>
+                                        <form action="/artikel/delete/<%= artikel.id %>" method="POST"
+                                            style="display: inline;">
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                <% }); %>
+                        </tbody>
+
+
+                    </table>
+                    <% } else { %>
+                        <p>No products available.</p>
+                        <% } %>
+            </div>
+
+<%- include('../../includes/script') %>
+  </body>
+</html>
