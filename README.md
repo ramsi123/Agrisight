@@ -11,7 +11,7 @@
 - [Camerax](https://developer.android.com/jetpack/androidx/releases/camera) - CameraX is a Jetpack library, built to help make camera app development easier
 - [TensorFlow Lite](https://www.tensorflow.org/lite) - TensorFlow Lite is a mobile library for deploying models on mobile, microcontrollers and other edge devices.
 
-## App Architexture
+## App Architecture
 Agrisight App built using MVVM Architecture and Jetpack Compose
 
 ![MVVM Architecture](https://ahmadsufyan.my.id/uploads/mvvm.png)
