@@ -1,4 +1,4 @@
-## Team Members – C23-PS113
+## Team Members – CH2-PS485
 | Member    | Student ID    | Path    | University    |
 |------------|------------|------------|------------|
 | Aditya Aurelio Falah   | M123BSY1373      | Machine Learning     | Politeknik Elektronika Negeri Surabaya     |
