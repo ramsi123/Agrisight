@@ -3,6 +3,12 @@
 
 ![Arsitektur](https://github.com/Aditypraa/Agrisight/assets/95411404/fc49d59c-ad6e-4355-bd18-7c0c930656a8)
 
+## Team CLOUD COMPUTING
+| Member    | Student ID    | Path    | University    |
+|------------|------------|------------|------------|
+| Aditya Pratama   | C345BSY3341      | Cloud Computing     | Universitas 17 Agustus 1945 Surabaya     |
+| Salma Nabila    | C296BSX3580     | Cloud Computing     | Universitas Pembangunan Nasional Veteran Jawa Timur     |
+
 
 ## Tech Stack
 
