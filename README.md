@@ -120,7 +120,7 @@ Start the server
 | :-------- | :------- | :------------------------- |
 | `api_key` | `string` | **Required**. Your API key |
 
-#### Get Tanaman
+#### Get Artikel
 
 ```http
   GET /api/artikel/:id
@@ -150,7 +150,6 @@ Start the server
             "deskripsi": "deskripsi"
         }
     }
-}
     ```
 
 - Error Responses
