@@ -1,4 +1,4 @@
-# Mobile Development - Agrisight
+# Mobile Development - AGRISIGHT
 
 ## Tech stack & Open-source libraries
 - Minimum SDK level 24
