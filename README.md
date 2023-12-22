@@ -3,7 +3,7 @@
 
 ## Architecture
 <p align="center">
-<img src="https://i.imgur.com/nMKzVZZ.jpeg" width="100%" alt="Cloud Architecture"/>
+<img src="https://i.imgur.com/nMKzVZZ.jpeg" width="70%" alt="Cloud Architecture"/>
 </p>
 
 ## Team CLOUD COMPUTING
