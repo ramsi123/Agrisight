@@ -23,7 +23,6 @@ Agrisight App built using MVVM Architecture and Jetpack Compose
   - Install the app
  
 ## Features
-
 https://github.com/ramsi123/Agrisight/assets/67065679/4a5be310-7b3e-4255-8a0b-a26f0d9b43ee
 
   - Authentication with google and email to Firebase Authentication
