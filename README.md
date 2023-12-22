@@ -1,7 +1,10 @@
 
 # Cloud Computing - AGRISIGHT
 
-![Arsitektur](https://github.com/Aditypraa/Agrisight/assets/95411404/fc49d59c-ad6e-4355-bd18-7c0c930656a8)
+## Architecture
+<p align="center">
+<img src="https://i.imgur.com/nMKzVZZ.jpeg" width="100%" alt="Cloud Architecture"/>
+</p>
 
 ## Team CLOUD COMPUTING
 | Member    | Student ID    | Path    | University    |
