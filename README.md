@@ -12,3 +12,8 @@
 <p align="center">
 <img src="https://i.imgur.com/E2ErfF4.png" width="100%" alt="Agrisight"/>
 </p>
+
+Agrisight is an innovative project that aims to address the challenges of soil identification and crop recommendation in agriculture. By using computer vision, Agrisight intends to revolutionize agriculture by enabling users to accurately identify soil types and receive customized crop recommendations through simple photo uploads.
+
+## Download Link
+Download [link](https://drive.google.com/file/d/1D0HRCnPDs9m2VtVKQvwwugZv8IsT1B7b/view?usp=sharing) of Agrisight
