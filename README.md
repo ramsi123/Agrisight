@@ -9,4 +9,4 @@
 | Salma Nabila    | C296BSX3580    | Cloud Computing    | Universitas Pembangunan Nasional Veteran Jawa Timur    |
 
 # Agrisight
-https://i.imgur.com/E2ErfF4.png
+<img src="https://i.imgur.com/E2ErfF4.png" height="50%" width="50%" alt="Agrisight"/>
