@@ -10,6 +10,5 @@
 
 # Agrisight
 <p align="center">
-<img src="https://i.imgur.com/UNY1q1h.jpg" height="65%" width="65%" alt="Data in Excel"/>
 <img src="https://i.imgur.com/E2ErfF4.png" width="100%" alt="Agrisight"/>
 </p>
