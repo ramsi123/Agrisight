@@ -21,7 +21,8 @@ Download [link](https://drive.google.com/file/d/1D0HRCnPDs9m2VtVKQvwwugZv8IsT1B7
 ## About Project
 https://github.com/ramsi123/Agrisight/assets/67065679/4a5be310-7b3e-4255-8a0b-a26f0d9b43ee
 
-  - Authentication with google and email to Firebase Authentication
-  - Plant information
-  - Articles
-  - Soil scanner with camerax and tensorflow lite
+## Features of Agrisight App
+- Authentication with google and email to Firebase Authentication
+- Plant information
+- Articles
+- Soil scanner with camerax and tensorflow lite
