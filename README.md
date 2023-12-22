@@ -1,5 +1,10 @@
 # Mobile Development - AGRISIGHT
 
+## Team Mobile Development
+| Member | Student ID | Path | University |
+|---------|---------|---------|---------|
+| Dhiyaulhaq Ahmad Ramsi | A296BSY2113    | Mobile Development  |Universitas Pembangunan Nasional Veteran Jawa Timur  |
+
 ## Tech stack & Open-source libraries
 - Minimum SDK level 24
 - 100% Kotlin
